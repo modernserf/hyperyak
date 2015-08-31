@@ -4,7 +4,9 @@
   "description": "Modest card-based workspace environment",
   "main": "server.js",
   "scripts": {
-    "test": "node node_modules/eslint/bin/eslint.js src/ --ext .js --ext .jsx"
+    "lint": "node node_modules/eslint/bin/eslint.js src/ --ext .js --ext .jsx",
+    "tape": "node_modules/.bin/babel-node testRunner.js | node_modules/.bin/faucet",
+    "test": "npm run lint && npm run tape"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "eslint": "^1.3.1",
     "eslint-config-airbnb": "0.0.8",
     "eslint-plugin-react": "^3.3.0",
+    "faucet": "0.0.1",
     "history": "^1.8.1",
     "html-webpack-plugin": "^1.6.1",
     "json-loader": "^0.5.2",
