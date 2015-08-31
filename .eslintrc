@@ -1,10 +1,14 @@
 {
   "extends": "airbnb",
   "rules": {
+    "no-undef": 2,
     "indent": [2,4],
     "quotes": 0,
     "comma-spacing": 0,
     "comma-dangle": [2,"always-multiline"],
     "spaced-comment":0,
+    "space-before-function-paren": [2,"always"],
+    "no-nested-ternary": 0,
+    "react/no-multi-comp": 0
   }
 }

@@ -1,7 +1,6 @@
 /*eslint-env node */
+/*eslint-disable one-var, no-var, strict*/
 "use strict";
-
-require('babel/polyfill');
 
 var path =              require('path'),
     webpack =           require('webpack'),
