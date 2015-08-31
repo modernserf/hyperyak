@@ -37,7 +37,7 @@ module.exports = {
         envPlugin,
         new webpack.HotModuleReplacementPlugin(),
         new HtmlPlugin({
-            title: "HyperYak",
+            title: "HyperYak Loading...",
         }),
     ],
     resolve: {

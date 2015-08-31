@@ -57,7 +57,7 @@ a {
     color: inherit;
 }
 
-button {
+/*button {
     -webkit-appearance: none;
     appearance: none;
     background: none;
@@ -71,7 +71,7 @@ button {
     display: inline-block;
     font: inherit;
 }
-
+*/
 table, tbody {
     width: 100%;
 }

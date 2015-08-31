@@ -7,48 +7,118 @@ import { Provider, connect }          from 'react-redux';
 import thunk                 from 'redux-thunk';
 import { devTools }          from 'redux-devtools';
 import devToolsWindow        from 'util/DevTools';
+import { LOAD_DATA } from "constants";
 import {
     createStore,
     combineReducers,
     applyMiddleware,
     compose
 } from 'redux';
-
-const GO_NEXT = "route/GO_NEXT";
-const GO_PREV = "route/GO_PREV";
-
-const routeSelector = "route/SELECTOR";
-const initRouteState = { index: 1 };
-function routeReducer (state = initRouteState, {type}) {
-    switch (type) {
-    case GO_NEXT:
-        return { ...state, index: state.index + 1 };
-    case GO_PREV:
-        return { ...state, index: state.index - 1 };
-    default:
-        return state;
-    }
-}
+import {
+    selector as navSelector,
+    reducer as navReducer,
+    select as selectNav
+} from 'actions/navigation';
 
 const appState = combineReducers({
-    [routeSelector]: routeReducer,
+    [navSelector]: navReducer,
 });
 const withMiddleware = compose(
     applyMiddleware(thunk),
     devTools(),
     createStore);
 const store = withMiddleware(appState,{});
+store.dispatch({type: LOAD_DATA, payload: testData});
+
+
+@connect((state) => ({
+    nav: selectNav(state),
+}))
+class Button extends React.Component {
+    static propTypes = {
+        nav: PropTypes.object.isRequired,
+        dispatch: PropTypes.func.isRequired,
+        value: PropTypes.node,
+        action: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+    }
+    render () {
+        const { dispatch, action, value, label } = this.props;
+        return (
+            <button onClick={() =>
+                dispatch({ type: action, payload: value })}>
+                {label}</button>
+        );
+    }
+}
+
+class Label extends React.Component {
+    static propTypes = {
+        value: PropTypes.string.isRequired,
+        style: PropTypes.object,
+    }
+    render () {
+        return <div style={this.props.style}>{this.props.value}</div>;
+    }
+}
+class Container extends React.Component {
+    static propTypes = {
+        children: PropTypes.node.isRequired,
+        style: PropTypes.object,
+        direction: PropTypes.string,
+        alignItems: PropTypes.string,
+        justifyContent: PropTypes.string,
+    }
+    static defaultProps = {
+        direction: "column",
+        alignItems: "center",
+        justifyContent: "center",
+    }
+    render () {
+        const { direction, alignItems, justifyContent, children, ...props } = this.props;
+        const style = {
+            display: "flex",
+            flexDirection: direction,
+            alignItems,
+            justifyContent,
+            ...this.props.style,
+        };
+
+        return (
+            <div {...props} style={style}>{children}</div>
+        );
+    }
+}
+
+class Layer extends React.Component {
+    static propTypes = {
+        children: PropTypes.node.isRequired,
+    }
+    render () {
+        const { children, ...props } = this.props;
+        return (
+            <div style={{
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+            }}>
+                <Container {...props} style={{
+                    width: "100%",
+                    height: "100%",
+                }}>{children}</Container>
+            </div>
+        );
+    }
+}
 
 class Card extends React.Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
-        style: PropTypes.object.isRequired,
     }
     render () {
-        const { children, style, ...props } = this.props;
+        const { children } = this.props;
         return (
-            <div {...props} style={{
-                ...style,
+            <div style={{
                 display: "flex",
                 width: 512,
                 height: 384,
@@ -58,26 +128,7 @@ class Card extends React.Component {
     }
 }
 
-@connect((state) => ({
-    route: state[routeSelector],
-}))
-class Stack extends React.Component {
-    static propTypes = {
-        children: PropTypes.node.isRequired,
-        dispatch: PropTypes.func.isRequired,
-        route: PropTypes.object.isRequired,
-    }
-    render () {
-        const { children, dispatch, route, ...props } = this.props;
-        return (
-            <div {...props}>
-                {children[route.index]}
-            </div>
-        );
-    }
-}
-
-const primitives = { Card, Stack };
+const primitives = { Layer, Container, Label, Button };
 
 function parse ([elName, props, children]) {
     const el = primitives[elName] || elName;
@@ -90,15 +141,30 @@ function parse ([elName, props, children]) {
     return React.createElement(el,props,childTags);
 }
 
+@connect((state) => ({
+    nav: selectNav(state),
+}))
 class Workspace extends React.Component {
+    static propTypes = {
+        nav: PropTypes.object.isRequired,
+    }
+    componentDidUpdate () {
+        const card = this.props.nav.card;
+        document.title = card.label;
+    }
     render () {
+        const {  nav } = this.props;
+        const view = parse(nav.card.view);
+
         return (
             <div style={{
                 backgroundColor: "gray",
                 padding: 32,
                 height: "100%",
             }}>
-                {parse(testData)}
+                <Card>
+                    {view}
+                </Card>
             </div>
         );
     }

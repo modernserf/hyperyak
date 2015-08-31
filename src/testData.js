@@ -1,20 +1,15 @@
-export default ["Stack",{},[
-    ["Card",{
+export default {
+    cards: [{
         id: "first-card",
         label: "First Card",
-        style: {
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-        }},
-        [["h1",{},"This is a header"],
-        ["h2",{},"This is a subhead"]]],
-    ["Card",{
+        view: ["Layer",{},[
+            ["Label",{ value: "This is a header"}],
+            ["Label",{ value: "This is a subhead"}],
+            ["Button",{action: "navigation/GO_NEXT", label: "Next"}]]],
+    },{
         id: "second-card",
         label: "Second Card",
-        style: {
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-        }},
-        [["h1",{},"This is the second card"]]]]];
+        view: ["Layer",{},[
+            ["Label",{ value: "This is the second card"}]]],
+    }],
+};
