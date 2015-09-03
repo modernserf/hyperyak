@@ -40,6 +40,7 @@
     "react-redux": "^1.0.1",
     "redux": "^1.0.1",
     "redux-devtools": "^1.1.2",
+    "redux-pouchdb": "0.0.4",
     "redux-thunk": "^0.1.0",
     "style-loader": "^0.12.3",
     "tape": "^4.2.0",

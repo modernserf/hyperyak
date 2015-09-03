@@ -1,13 +1,14 @@
 import 'babel/polyfill';
 import 'reset.css';
 import 'main.css';
-import React, { PropTypes } from 'react';
-import testData from 'testData';
-import { Provider, connect }          from 'react-redux';
+import React, { PropTypes }  from 'react';
+import testData              from 'testData';
+import { Provider, connect } from 'react-redux';
 import thunk                 from 'redux-thunk';
 import { devTools }          from 'redux-devtools';
 import devToolsWindow        from 'util/DevTools';
-import { LOAD_DATA } from "constants";
+import { LOAD_DATA }         from "constants";
+import { persistentStore } from 'redux-pouchdb';
 import {
     createStore,
     combineReducers,
@@ -25,11 +26,11 @@ const appState = combineReducers({
 });
 const withMiddleware = compose(
     applyMiddleware(thunk),
+    persistentStore,
     devTools(),
     createStore);
 const store = withMiddleware(appState,{});
 store.dispatch({type: LOAD_DATA, payload: testData});
-
 
 @connect((state) => ({
     nav: selectNav(state),
@@ -130,15 +131,19 @@ class Card extends React.Component {
 
 const primitives = { Layer, Container, Label, Button };
 
-function parse ([elName, props, children]) {
-    const el = primitives[elName] || elName;
+
+function parse (it, byParent) {
+    if (!it) { return null; }
+    const children = byParent.get(it.id);
+    const el = primitives[it.componentType] || it.componentType;
     const childTags = !children ?
         [] :
-    typeof children === "string" ?
-        children :
-        children.map(parse);
+        children.map((x) => parse(x, byParent));
+    const props = { ...it.props, key: it.id };
 
-    return React.createElement(el,props,childTags);
+    return el ?
+        React.createElement(el,props,childTags) :
+        childTags;
 }
 
 @connect((state) => ({
@@ -149,12 +154,12 @@ class Workspace extends React.Component {
         nav: PropTypes.object.isRequired,
     }
     componentDidUpdate () {
-        const card = this.props.nav.card;
-        document.title = card.label;
+        const route = this.props.nav.route;
+        document.title = route.label;
     }
     render () {
         const {  nav } = this.props;
-        const view = parse(nav.card.view);
+        const view = parse(nav.route,nav.byParent);
 
         return (
             <div style={{

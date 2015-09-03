@@ -5,26 +5,35 @@ import {
     GO_PREV,
     GO_ID
 } from "constants";
-import { toMap, into } from "util/seq";
+import { toMap, partition } from "util/seq";
 
 const initState = {
     selected: null,
-    routes: new Map(),
-    routeIDs: [],
+    byID: new Map(),
+    byParent: new Map(),
 };
 
-function offset (state, diff) {
-    const index = state.routeIDs.indexOf(state.selected);
-    const nextKey = state.routeIDs[index + diff];
-    return nextKey || state.routeIDs[0];
+function getRoute (state) {
+    return state.byID.get(state.selected) ||
+        state.data.find((x) => x.type === "route");
 }
+
+function offset (state, diff) {
+    const route = getRoute(state);
+    const allRoutes = state.data.filter((x) => x.type === "route");
+
+    const index = allRoutes.indexOf(route);
+    const nextRoute = allRoutes[index + diff];
+    return nextRoute ? nextRoute.id : allRoutes[0];
+}
+
 
 export function reducer (state = initState, {type, payload}) {
     switch (type) {
     case LOAD_DATA: {
-        const routes = payload.cards::toMap();
-        const routeIDs = routes.keys()::into(Array);
-        return { ...state, selected: routeIDs[0], routes, routeIDs };
+        return { ...state, data: payload,
+            byID: payload::toMap(),
+            byParent: payload::partition((x) => x.parent_id) };
     }
     case GO_NEXT:
         return { ...state, selected: offset(state,1) };
@@ -41,6 +50,5 @@ export const selector = NAVIGATION_SELECTOR;
 
 export function select (state) {
     const nav = state[selector];
-    const card = nav.routes.get(nav.selected || nav.routeIDs[0]);
-    return { ...nav, card };
+    return { ...nav, route: getRoute(nav) };
 }
