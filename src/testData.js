@@ -3,38 +3,37 @@ export default [
         type: "route",
         id: "first-card",
         label: "First Card",
+        children: ["layer-1"],
     }, {
         type: "route",
         id: "second-card",
         label: "Second Card",
+        children: ["layer-2"],
     }, {
         type: "component",
         id: "layer-1",
-        parent_id: "first-card",
         componentType: "Layer",
         props: {},
+        children: ["label-1","label-2","button-1"],
     }, {
         type: "component",
         id: "layer-2",
-        parent_id: "second-card",
         componentType: "Layer",
         props: {},
+        children: ["label-3"],
     }, {
         type: "component",
         id: "label-1",
-        parent_id: "layer-1",
         componentType: "Label",
         props: { value: "This is a header" },
     }, {
         type: "component",
         id: "label-2",
-        parent_id: "layer-1",
         componentType: "Label",
         props: { value: "This is a subhead"},
     }, {
         type: "component",
         id: "button-1",
-        parent_id: "layer-1",
         componentType: "Button",
         props: {
             label: "Next",
@@ -43,7 +42,6 @@ export default [
     }, {
         type: "component",
         id: "label-3",
-        parent_id: "layer-2",
         componentType: "Label",
         props: { value: "This is the second card"},
     },

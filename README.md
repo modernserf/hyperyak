@@ -1,237 +1,130 @@
-# hyperyak
-![travis-ci status](https://travis-ci.org/modernserf/hyperyak.svg?branch=master)
+# The Origin of HyperCard in the Breakdown of the Bicycle for the Mind
+---
 
-the unfulfilled promise of programming for everyone 
-the Bicycle for the Mind 
+# Introduction
 
-https://jamesfriend.com.au/running-hypercard-stack-2014
+HyperCard is a programming environment for the Macintosh built around the hypermedia paradigm. HyperCard does this with a cards metaphor -- documents, called stacks, are made of interconnected cards, each of which can contain text, graphics, and even now video. Cards and stacks are also scriptable -- almost anything you can do in a traditional application, you can do from a HyperCard stack.
 
-HyperCard as lens for user-friendly programming
+HyperCard bridges the gap between users and programmers -- you can make presentations and rich media and even simple games without writing a single line of code. But crucially, it also includes a huge library of stacks, widgets and templates -- some for people who are just learning to code and need pieces that they can put together like Legos, some for people who code pretty well but just need some design guidance. HyperCard has something for you at every stage of your development.
+
+One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones that Symbolics offers, but they run on a computer that doesn't cost as much as a house.
+
+And there's one last thing I want to point out -- its very small, it could just be an artifact of disk space considerations, but -- HyperCard wants to be customized. All of the tools I mentioned before, as well as the actual configuration for HyperCard, are done from the Home stack. The Home stack is 
+designed for you to edit it -- it even gives you three blank pages to fill in with links to your own stacks. One of the core patterns in Christopher Alexander's A Pattern Language is that our tools, our homes, our neighborhoods -- its the act of customization that makes them our own and that makes them beautiful. This is the same thing that the free software people mean when they talk about the hacker ethos and why they love Unix and Emacs. This small detail more than anything else speaks to me about the design goals of the team that makes this.
+
+- lampshade Bret Victor "Future of Programming" talk somewhere in intro
+
+# history and definitions of hypertext
+> In Xanadu did Ted Nelson a stately hypertext decree
+
+The terms "hypertext" and "hypermedia", used to mean a nonlinear collection of linked documents, date back to the mid 60s -- they were coined by the visionary/eccentric Ted Nelson as part of his still unimplemented hypermedia system Project Xanadu. 
+
+The immediate ancestor of this idea is the Memex, described in Vannevar Bush's As We May Think. The system imagined here is implemented via automated microfiche, but the fundamental concept of texts designed for nonlinearity, with navigation facilitated by computer, is all laid out here. 
+
+The first implementation of hypertext, much like the first implementation of so many other concepts we take for granted today, was part of NLS, the computer system developed by Doug Englebart's team, particularly the Journal, which was a collaborative hypertext document editor.
+
+The ideas proposed in NLS, including hypermedia, would be further refined throughout the 70s and 80s, in universities and research labs, particularly Xerox PARC. One of the best documented and studied systems was NoteCards, developed for PARCs Lisp environment the year prior to Bill Atkinson starting his work on HyperCard. Their analysis of the challenges of hypermedia systems and predictions of the next generation forms the basis of the next section.
+
+# challenges and predictions
+The NoteCards team lays out seven challenges of hypermedia systems, as well as some ideas on how to solve them in the next generation: navigation, composite pages, dynamically-generated pages, computation, versioning, collaboration, and extensibility. Some of these, like computation and extensibility, are already answered in contemporary versions of HyperCard, others, like collaboration, are open questions. 
+
+- note about 25 year timescale -- imagining hypermedia systems in 2015
+
+## Navigation
+The first question is around means of navigation -- links and search. The primary means of navigating through hypermedia is by following links, but this breaks down as the size of collections increases, or if the nodes aren't structured in a way that lends itself to hierarchical indexes. For example, one of the foundational use cases for hypermedia is in knowledge bases, which require indexes -- more on those later -- but become vastly more useful when you can search them. Now, most hypermedia systems have some form of full-text search. Many also have provisions for searching the metadata that forms the basis of their indexing systems. What we're missing are systems for searching structurally; that is, finding relationships between pages based on their links. One obvious use case, particularly in a large and noisy data set, would be ranking search results by relevance based on not just the content of the pages but also the pages that it links to and those that link to it. But that's only the beginning. When hyperlinks are used as a means of citation, structural analysis of the links can reveal things like circular references and **TKTKTK**
+
+- what social changes does this require?
+
+## Beyond Pages & Links
+The next two challenges, composite and dynamically generated pages, are rooted in the limitations of the page-link model. Composite pages -- pages composed of other pages -- are explored all the way back to Ted Nelson's Xanadu, in a concept he calls transclusion. The simplest implementations of this would split a card into frames -- for example, a table of contents on one side with the content on the other. But more sophisticated forms of transclusion could be used to insert content into the flow of the document -- no longer just links but sourced citations. 
+
+Dynamically-generated pages include the aformentioned indices and tables of contents, as well as automatically generated document outlines. Another version of this would be an even more dramatic separation of content from presentation -- for example, the same content could be presented in different formats for teachers and students, or authors and readers. These, as well as the more advanced uses of transclusion, suggest that the content of the documents are heavily annotated with metadata, and indicates that the data must be strucutred much more like a database than a homogeneous document.
+
+- hypercard background / foreground
+- widgets are copied, not transcluded
+- shared component, unique state 
+
+HyperCard acheives this with a background/foreground model -- the layout of the slides of this talk are stored in the background, but the content is stored in the foreground **TK TK**
+
+- how does this affect the "rhetoric of hypermedia?"
+
+## Computation & Extensibility
+- computation
+    + hypercard uses HyperTalk / event model
+    + has pretty good debugging tools
+    + no matter how "user-friendly" a programming language is, its never friendly enough
+    + we must consider Turing completeness our last resort
+- extensibility
+    + hypercard relies on a lot of hacks to get the drag-and-drop components to work
+    + maybe section ref Pattern Language goes here?
+
+## Collaboration & Versioning
+Reflections on NoteCards sees collaboration and versioning as separate challenges, but I suspect one is the answer to the other. Although NLS Journals were designed to be online and multi-user, most hypermedia systems since then have been intended for a single user. The data model of HyperCard, modeled after smalltalk and lisp machine images, purposefully blurs the line between the application code and user data, which is compelling from a perspective of user empowerment, but complicates things when collaborating. 
+
+Now I know we're a bunch of weirdos but, whether it was through our colleges, or our user groups, or even CompuServe we've all discovered the internet, and I don't think I need to be Marty McFly to know what kind of impact its gonna have on the world in 25 years. Everything we do on our computers today, we're gonna be doing in Cyberspace tomorrow. But if we put a stack up on the BBS now, how would we work on it together without clobbering each other's changes? How would we fix stacks that, whether through malice or accident, are put into an unusable state? 
+
+While you're thinking about that, lets look at a different challenge -- the publishing workflow. What would a hypermedia magazine look like, and how would publishing work? What would a hypermedia publishing _industry_ look like? If hyperzines are cross-referencing each other, or fact-checking each other, how would transcluded quotations point to the document at a certain point in time, or the most recent version? 
+
+A third question: how do we distinguish between collaboration and commentary? An editor's notes a different kind of thing than the article they're marking up. If I'm making a stack that, I don't know, annotates rap lyrics with lyrical analyses and citations of referents, the annotations are a distinct entity from the annotated items. And if, for God knows what reason, publishers wanted the public to respond to articles in real time, those comments would be a different body of work than the original article. And considering the kinds of Letters to the Editor that publications print, just _imagine_ what horrible bullshit they throw away. Just like any newsgroup, they're going to want a means of moderating discussions.
+
+The technical answer to this question is the pervasive use of version control, transclusion, and first-class systems of identity. I'm gonna handwave over exactly how this would work, but the general idea is that disk space is growing at an exponential rate and in the future it will be possible to store not just the current state of a hypermedia document but every state it has ever been in. When we work on a document together, we can work on separate branches and then merge then when we're done, or even have our changes continuously zipped together via an operational transform. Annotations and comments would work via a mutual transclusion -- if you write something and I comment on it, I'm transcluding your original article into my document and you're transcluding my annotations into your publication. Notions of identity allow you to manage, to some extent, the privacy of a document, decide who's version of a document is the authoritative one, and facilitate things like whitelisting or blacklisting changes and annotations made by others. 
+
+- The human side of this is more complicated. The more we open ourselves to collaboration and community-building, the more time and effort we need to spend moderating those communities.
+- We've all given up on newsgroups or chatrooms because of the destructive force of just a handful of griefers; imagine what our lives will be like when there are trolls wherever we go.
+- Every community will have different mores and different requirements for their collaboration and moderation thereof, best to provide low-level access to version control and identity and let communities build their own solutions, rather than imposing a one-size-fits-all system
+- empathy important on moderation side as well 
+    + forking a community should be a last resort
+    + prophecy of eternal september
+    + communities live and die by their ability to welcome new people
+
+# Predictions as reflection into ones own time
+
+Hypermedia is the product of futurists and philosophers as much as it is of engineers and scientists. Its important to acknowledge that predictions are a product of the time in which they are made. As We May Think was written during the end and immediate aftermath of the Second World War, and the desire to turn the eye of science and technology away from war is a response to what we now know as the Military-Industrial Complex. 
+
+1990 is a much different world than 1945, but there are definite similarities -- we too are living at the conclusion of a war of sorts with the fall of the Iron Curtain. But this is a war fought culturally and economically -- as the first computers were instrumental in the Allied victory back then, the personal computer and tech industry have been a driving force of capitalism.
+
+# The Bicycle for the Mind
+
+There's a metaphor that Apple uses to talk about the personal computer -- the bicycle for the mind. Quoting Steve Jobs:
+
+> I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list....That didn't look so good, but then someone at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle and a man on a bicycle blew the condor away. That's what a computer is to me: the computer is the most remarkable tool that we've ever come up with. It's the equivalent of a bicycle for our minds.
+
+## Why bicycles?
+- the idea of the Bicycle for the Mind is an important metaphor on a lot of levels
+- both in the mechanical sense, of a tool that increases human ability but also in the sense of being something kind of cheap and democratic
+- instead of creating a bicycle for the mind, we’ve created a car
+- which creates a car culture, air pollution, auto accidents, cities designed against pedestrians, the suburbs etc
+- the automotive industry has a self-perpetuating virus quality that the computer industry follows
+
+## Conspiracies vs Systematic Injustice
+- auto industry conspires against streetcars
+- apple changed hypercard from free to paid under pressure from commercial software publishers
+- but no conspiracy is necessary to support the status quo, only indifference
+- National City Lines was only one small part of the car-ification of America
+- the commercialization of HyperCard is Apple trying to increase revenue
+- wealth inequality doesn't require an international cabal of bankers, just cost-of-living and compound interest
+
+Technological inequality doesn't require a conspiracy against free software. I don't know about you, but I can imagine a world where the whole tech industry is built on top of free and open source software, and yet anticompetitive practices, institutional prejudices, a culture of credentialism, the venture capital bubble, and the idea that tech workers need to live in the most expensive cities in the country are still endemic issues. I can imagine a world in which nearly everyone has the equipment to create hypermedia-powered software, but the tools are so arcane that next to nobody has the ability to use them. And in my darkest moments, I can imagine a 2015 in which everyone is constantly connected to a global network of computers, but the whole system is designed to show us ads and spy on us.  
+
+These are products of the system as much as they are causes, because technology is an open feedback loop. If we want the power of computing to benefit all of humanity -- if we want to make a true bicycle for the mind -- we can't just assume things will work out that way on their own; we need to make this a conscious goal of every decision we make. 
+
+We're on the wrong trajectory today, but we're not doomed. SRI and ARPA show that we can repurpose our efforts from war into peace. Bell Labs and PARC show that commercial technology companies can direct their money and efforts into research that has revolutionary impact on the world. World-changing technology can come from anywhere -- for all we know the technology that dominates the next 25 years could come out of a side project at a European particle accelerator. But these are exceptional cases -- the future we want requires all of our participation. 
+
+I've presented you two visions of 2015 -- one in which we use a global hypertext system to increase human understanding, and one in which we use it to shackle ourselves to the commercial software industry. The basic technology is the same; all the difference lies in how we choose to use it.
+
+(TUMULTUOUS, SUSTAINED APPLAUSE)
 
 ---
 
-# 1990
-
-## Introduction to HyperCard
-- Edit a text field
-- Create a button/transition
-- Show script editor
-- Show "user level"
-
-a programming language doesn't have to be good to be useful -- hypercard is string-oriented to the extreme, using comma-delimited strings as arrays
-
-## Hypertext
-- Ted Nelson / Xanadu
-- NLS
-- Notecards
-	- reflections on weakness of hypertext
-
-the restrictions of the document/link metaphor lift some of the weight of the Blank Page. It is useful even when it is discared, because it provides an entry point
-
-
-## Bicycle for the Mind
-- Smalltalk / Dynabook
-- learn through discovery
-- using is creating
-
-apple's ideal in the 80s (and well into the mid 2000s) was the semi-professional/dilletante creative 
-
-## Vision of the future
-- CD-ROMs (a stopgap)
-- Global HyperCard BBS
-- HyperCard all the way down
-
-# 2015
-
-## What we have
-
-## What we gave up
-
-## What could be
-
-### Misplaced nostalgia
-
-we do not need a "new hypercard", we need tools to bridge beginners and experts
-
-hypercard's great strength was blurring app use and app development; the use of web apps provides an opportunity for user-driven expansion not present in native apps
-
-debates about what the web is for are boring
-the web is for people, not "hypertext"
-what hypercard fundamentally got right was that it was ideologically impure — it was much more focused on providing an environment for experimentation than fulfilling any ideals about hypertext
-
-
-### Amateurgramming
-
-The value of hypercard isn't that its easy to use, but that its usable at many degrees of ability -- from non-programmer to expert. A beginner can start "playing" immediately, a professional can build a sellable product, and every skill level in between can find a niche.    
-
-The web has fulfilled a similar role, but recent tools for web developers -- e.g. text editors, build tools, transpilers -- have focused on professionals while offering little for amateurs.
-
-a beginner is able to do twice as much as they could in 1995, but an expert can do a thousand times as much. the power curve has gone from linear to exponential
-
-when a task has its accidental complexity removed and if can be done with non-programmer tools it ceases to be called "programming". look towards tools that programmer chauvanism dismisses: excel, twine
-
----
-
-future: gestures https://twitter.com/jaredsinclair/status/547258126173732864
-
----
-
-Does this fit??
-
-dichotomy between usability / generality:
-- hypercard has a fairly specific model, it wasnt truly general purpose (e.g. compared to C)
-- non-programmer productivity tools like excel/powerpoint are even less general purpose but also easier to use
-- fundamental distinction is in extensibility -- hypercard could be used to make hypercard tools
-- the webpage model is useful even when it is discared, because the document model provides an entry point
-- but web is extendable to the point where you can simulate a whole OS on top of it
-- curse of the blank page
-- fred brooks, the tar pit
-
-we barely understand how to write software; we definitely dont understsnd how to write software for writing software
-
---- 
-
-So, what made you stop trying to learn how to code? I'm curious about the barriers that get erected.
-
-https://twitter.com/anildash/status/648730444050104320
-
-The divide between “software for programmers” & “software for humans” does both a huge disservice. Bridging it should be a major priority.
-
-https://twitter.com/maxkreminski/status/649272455026995200
-
----
-
-https://medium.com/new-media-art-science/characters-of-the-net-unite-a1a4e53d68c
-
-http://boingboing.net/2015/08/24/a-game-making-app-for-everyone.html
-
-http://red-green-blue.com/kid-pix-the-early-years/
-
----
-
-http://hypercard.org/
-
-https://github.com/witheve/Eve
-
-http://dorophone.blogspot.com/2011/07/duckspeak-vs-smalltalk.html
-
-http://www.loper-os.org/?p=568
-
-http://fed.wiki.org/journal.hapgood.net/the-web-that-was/cogdog.sf.fedwikihappening.net/the-web-that-was
-
-http://archive.wired.com/gadgets/mac/commentary/cultofmac/2002/08/54370
-
-http://due-diligence.typepad.com/blog/2004/03/a_eulogy_for_hy.html
-
-http://www.mactech.com/articles/mactech/Vol.03/03.10/HyperCardProgramming/index.html
-
-http://www.nakedrabbit.com/?p=1022
-
-http://radar.oreilly.com/2010/03/the-ipad-needs-its-hypercard.html
-
-https://gigaom.com/2015/08/24/hypertext-50/
-
-https://medium.com/twenty-years-in-the-valley/one-of-the-biggest-mistakes-i-ve-made-in-my-career-72bf27c538b4
-
-http://www.imore.com/life-and-death-mac-hobbyist-it-time-new-hypercard
----
-
-> Where does HyperCard fit in the narrative of innovation? It's always tempting to go the condescending route and compare the program to, say, the optical telegraph, which was the magnetic telegraph's largely forgotten predecessor; or to John Logie Baird's mechanical television set, a forerunner to electronic TV; or to the cable/satellite music download experiments of Bill Von Meister, all of which tanked but eventually inspired America Online.
-
-http://arstechnica.com/apple/2012/05/25-years-of-hypercard-the-missing-link-to-the-web/2/
-
----
-
-Fred Brooks: 
-- No Silver Bullet : accidental vs essential complexity
-- The Tar Pit : program vs product 
-
-
-always bet on text: http://graydon2.dreamwidth.org/193447.html
-
-https://archive.org/search.php?query=hypercard
-
-Axis: history
-Memex -> NLS (Engelbart) -> Alto/Smalltalk -> Mac/HyperCard -> Web -> ???
-
-# Hypermedia
-
-## conceptual
-- Memex http://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/
-- Xanadu
-- NLS (Engelbart)
-
-## historical
-- Notecards:
-	- https://en.wikipedia.org/wiki/NoteCards 
-	- http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.2308&rep=rep1&type=pdf
-- Intermedia: https://en.wikipedia.org/wiki/Intermedia_%28hypertext%29
-- Neptune: http://cumincad.architexturez.net/system/files/pdf/31d5.content.pdf
-- HyperTies: http://www.cs.umd.edu/hcil/hyperties/
-
-## contemporary
-- HyperLook: http://www.art.net/studios/Hackers/Hopkins/Don/hyperlook/index.html
-- Oracle Media Objects: https://en.wikipedia.org/wiki/Oracle_Media_Objects
-- HyperPad: http://elab.eserver.org/hfl0138.html
-- HyperStudio
-- SuperCard
-
-## pre-www networking
-- ENQUIRE: (direct www ancestor) https://en.wikipedia.org/wiki/ENQUIRE
-- Gopher
-- BBS
-
-### The CD-ROM years
-- Apple SK8 (internal): http://macintoshgarden.org/apps/apple-sk8
-- QuarkImmedia
-- mTropolis
-- Director
-- authorware
-
-## present day
-- "the web"
-- hype: http://tumult.com/hype/
-- LiveCode (née revolution, MetaCard): http://livecode.com/
-- PenciCase: https://www.pencilcase.io/
-- TileStack (d) http://lambda-the-ultimate.org/node/2842
-
-# Amateurgramming
-
-## historical
-- smalltalk
-- LOGO
-- PLATO
-
-## contemporary
-- world builder: http://macintoshgarden.org/games/world-builder-1986
-
-## present day
-- scratch
-- mindstorms
-- stagecast creator (KidSim/Cocoa) https://en.wikipedia.org/wiki/Stagecast_Creator
-- ToonTalk
-- popplet http://popplet.com
-
-# interactive fiction
-
-## hypertext
-- twine
-- choicescript
-- storyspace
-
-## parser
-- inform7 http://inform7.com/
-- quest http://textadventures.co.uk/quest
-- hugo https://en.wikipedia.org/wiki/Hugo_(programming_language)
-- TADS http://www.tads.org/
-
-
-parser vs hypertext
-parser vs command line ?
-
-is parser in IF just a way of forcing arbitrary guess-the-verb? 
-
-
---- to categorize
-https://hackshackalpha.wordpress.com/excel-text-adventure-builder/
-
+# Orphaned points
+
+- hypermedia relieves some of the problem of the blank page
+- what hypercard fundamentally got right was that it was ideologically impure -- it was much more focused on providing an environment for experimentation than fulfilling any ideals about hypertext
+- a beginner is able to do twice as much as they could in 1995, but an expert can do a thousand times as much. the power curve has gone from linear to exponential
+- when a task has its accidental complexity removed and if can be done with non-programmer tools it ceases to be called "programming". look towards tools that programmer chauvanism dismisses: excel, twine
+
+# Links
+- https://jamesfriend.com.au/running-hypercard-stack-2014
+- http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.2308&rep=rep1&type=pdf
+- http://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/
+- https://www.youtube.com/watch?v=ob_GX50Za6c

@@ -5,12 +5,11 @@ import {
     GO_PREV,
     GO_ID
 } from "constants";
-import { toMap, partition } from "util/seq";
+import { toMap } from "util/seq";
 
 const initState = {
     selected: null,
     byID: new Map(),
-    byParent: new Map(),
 };
 
 function getRoute (state) {
@@ -31,9 +30,10 @@ function offset (state, diff) {
 export function reducer (state = initState, {type, payload}) {
     switch (type) {
     case LOAD_DATA: {
-        return { ...state, data: payload,
+        return { ...state,
+            data: payload,
             byID: payload::toMap(),
-            byParent: payload::partition((x) => x.parent_id) };
+        };
     }
     case GO_NEXT:
         return { ...state, selected: offset(state,1) };

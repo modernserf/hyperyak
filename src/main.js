@@ -132,13 +132,13 @@ class Card extends React.Component {
 const primitives = { Layer, Container, Label, Button };
 
 
-function parse (it, byParent) {
+function parse (it, byID) {
     if (!it) { return null; }
-    const children = byParent.get(it.id);
+    const children = it.children;
     const el = primitives[it.componentType] || it.componentType;
     const childTags = !children ?
         [] :
-        children.map((x) => parse(x, byParent));
+        children.map((x) => parse(byID.get(x), byID));
     const props = { ...it.props, key: it.id };
 
     return el ?
@@ -159,7 +159,7 @@ class Workspace extends React.Component {
     }
     render () {
         const {  nav } = this.props;
-        const view = parse(nav.route,nav.byParent);
+        const view = parse(nav.route,nav.byID);
 
         return (
             <div style={{
