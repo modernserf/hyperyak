@@ -31,7 +31,9 @@ The NoteCards team lays out seven challenges of hypermedia systems, as well as s
 - note about 25 year timescale -- imagining hypermedia systems in 2015
 
 ## Navigation
-The first question is around means of navigation -- links and search. The primary means of navigating through hypermedia is by following links, but this breaks down as the size of collections increases, or if the nodes aren't structured in a way that lends itself to hierarchical indexes. For example, one of the foundational use cases for hypermedia is in knowledge bases, which require indexes -- more on those later -- but become vastly more useful when you can search them. Now, most hypermedia systems have some form of full-text search. Many also have provisions for searching the metadata that forms the basis of their indexing systems. What we're missing are systems for searching structurally; that is, finding relationships between pages based on their links. One obvious use case, particularly in a large and noisy data set, would be ranking search results by relevance based on not just the content of the pages but also the pages that it links to and those that link to it. But that's only the beginning. When hyperlinks are used as a means of citation, structural analysis of the links can reveal things like circular references and **TKTKTK**
+The first question is around means of navigation -- links and search. The primary means of navigating through hypermedia is by following links, but this breaks down as the size of collections increases, or if the nodes aren't structured in a way that lends itself to hierarchical indexes. For example, one of the foundational use cases for hypermedia is in knowledge bases, which require indexes -- more on those later -- but become vastly more useful when you can search them. Now, most hypermedia systems have some form of full-text search. Many also have provisions for searching the metadata that forms the basis of their indexing systems. 
+
+What we're missing are systems for searching structurally; that is, finding relationships between pages based on their links. One obvious use case, particularly in a large and noisy data set, would be ranking search results by relevance based on not just the content of the pages but also the pages that it links to and those that link to it. But that's only the beginning. When hyperlinks are used as a means of citation, structural analysis of the links can reveal things like circular references and **TKTKTK**
 
 - what social changes does this require?
 
@@ -40,7 +42,21 @@ The next two challenges, composite and dynamically generated pages, are rooted i
 
 Dynamically-generated pages include the aformentioned indices and tables of contents, as well as automatically generated document outlines. Another version of this would be an even more dramatic separation of content from presentation -- for example, the same content could be presented in different formats for teachers and students, or authors and readers. These, as well as the more advanced uses of transclusion, suggest that the content of the documents are heavily annotated with metadata, and indicates that the data must be strucutred much more like a database than a homogeneous document.
 
-- hypercard background / foreground
+- form elements
+    + hypercard offers neither composites nor indexes as primitives -- those are implemented in userland -- but it does extend the page & link model
+    + hypercard primitives are layer (graphics) - field - button 
+    + something about standard implementations of common forms, even if they're imperfect, provides a common vocabulary for a community of programmers
+
+- content vs presentation
+    + useful distinction in many cases, but the line is never as clear as you want it to be
+    + foolish to try to define exact barrier -- we can intuit that a hot dog is not a sandwich, but hard to define why
+    + sometimes, we'll be able to make the divide; sometimes we'll want to keep them together, sometimes we may want even more gradations -- e.g. data, layout, decoration 
+    + pure hubris to think that one could design a system in which, say, content is described entirely with one language, and presentation in another
+    + wouldn't it be hillarious if we had created such a divide and yet we still weren't sure how to vertically center text in a box?
+
+- hypercard background / foreground modes
+    + microrant about why modes suck
+        * nanorant about lightboxes
 - widgets are copied, not transcluded
 - shared component, unique state 
 
@@ -49,14 +65,34 @@ HyperCard acheives this with a background/foreground model -- the layout of the 
 - how does this affect the "rhetoric of hypermedia?"
 
 ## Computation & Extensibility
+- hypermedia is a fundamentally limited format. Its a surprisingly versatile one, but it seems silly to be using a computer and refuse to compute
+- And even if we were to stick with a purely declarative document model, there would still be structures of media that the designers of the system wouldn't have considered 
+
 - computation
+    + something hypercard fundamentally gets right was that it was ideologically impure -- it's much more focused on providing an environment for experimentation than fulfilling any ideals about hypermedia
     + hypercard uses HyperTalk / event model
+    + deeply influenced by both smalltalk (object-oriented) and shell scripting (string-oriented to a startling degree)
     + has pretty good debugging tools
     + no matter how "user-friendly" a programming language is, its never friendly enough
+    + code is, itself, a code smell -- an indication of incidental complexity
+    + programmers, as we understand the term today, are only going to be a small fraction of the authors of hypermedia systems. Are we really going to present everyone else with a glorified word processor and tell them they can go no further?
+    + don't let programmer chauvanism trick us into thining that emulating a 70s teletype is the ideal form of human expression
     + we must consider Turing completeness our last resort
 - extensibility
+    + extensibility is going to be enabled by programming, but not only for programmers
+    + one of the things that makes programming feel magical is that we can use our tools to improve themselves
+    + systems like HyperCard bring that magic to a wider audience
+    + reflections specifically calls out hypercard and emacs as examples of extensibility
+    + (section ref Pattern Language goes here)
+    + need a better way to package reusable components
     + hypercard relies on a lot of hacks to get the drag-and-drop components to work
-    + maybe section ref Pattern Language goes here?
+    + black-box model (pure transclusion) discourages modification / learning, but copy & paste duplication is brittle -- we need something that adapts to both
+    + sharing components between projects is going to be important -- foreshadow collaboration section, lampshade github, reference open source as it was in 1990
+    + programmers that build tools need to think about how their tools can be accessible to people of varied skill levels, including people who are snapping pieces together
+    + when programmers make tools that only other programmers can use, they're effectively helping "the rich get richer"
+    + programmers that build user-facing software will need to build affordances for users to customize their tools
+    + there may come a time where, just as users and even many programmers never interact directly with hardware, users may also never directly interact with software written by someone writing code
+    + software development is ultimately a support role for the people doing the real work
 
 ## Collaboration & Versioning
 Reflections on NoteCards sees collaboration and versioning as separate challenges, but I suspect one is the answer to the other. Although NLS Journals were designed to be online and multi-user, most hypermedia systems since then have been intended for a single user. The data model of HyperCard, modeled after smalltalk and lisp machine images, purposefully blurs the line between the application code and user data, which is compelling from a perspective of user empowerment, but complicates things when collaborating. 
@@ -69,10 +105,17 @@ A third question: how do we distinguish between collaboration and commentary? An
 
 The technical answer to this question is the pervasive use of version control, transclusion, and first-class systems of identity. I'm gonna handwave over exactly how this would work, but the general idea is that disk space is growing at an exponential rate and in the future it will be possible to store not just the current state of a hypermedia document but every state it has ever been in. When we work on a document together, we can work on separate branches and then merge then when we're done, or even have our changes continuously zipped together via an operational transform. Annotations and comments would work via a mutual transclusion -- if you write something and I comment on it, I'm transcluding your original article into my document and you're transcluding my annotations into your publication. Notions of identity allow you to manage, to some extent, the privacy of a document, decide who's version of a document is the authoritative one, and facilitate things like whitelisting or blacklisting changes and annotations made by others. 
 
+- something about code is data, and the DVCS model is useful for sharing code as well as managing data
+
 - The human side of this is more complicated. The more we open ourselves to collaboration and community-building, the more time and effort we need to spend moderating those communities.
 - We've all given up on newsgroups or chatrooms because of the destructive force of just a handful of griefers; imagine what our lives will be like when there are trolls wherever we go.
+- This describes a set of primitives for managing state and access.
+    + every community has different needs, and they should be free to build something that fits their needs instead of using a one-size-fits-all solution
+    + but users shouldn't be expected to work in these primitives -- they should be able to use this in terms of their domain objects, not in terms of the version graph
+    + we'll know we've failed if the standard way to manage versions is with a command-line tool
 - Every community will have different mores and different requirements for their collaboration and moderation thereof, best to provide low-level access to version control and identity and let communities build their own solutions, rather than imposing a one-size-fits-all system
 - empathy important on moderation side as well 
+    + lampshade linus' rants
     + forking a community should be a last resort
     + prophecy of eternal september
     + communities live and die by their ability to welcome new people
@@ -104,7 +147,7 @@ There's a metaphor that Apple uses to talk about the personal computer -- the bi
 - the commercialization of HyperCard is Apple trying to increase revenue
 - wealth inequality doesn't require an international cabal of bankers, just cost-of-living and compound interest
 
-Technological inequality doesn't require a conspiracy against free software. I don't know about you, but I can imagine a world where the whole tech industry is built on top of free and open source software, and yet anticompetitive practices, institutional prejudices, a culture of credentialism, the venture capital bubble, and the idea that tech workers need to live in the most expensive cities in the country are still endemic issues. I can imagine a world in which nearly everyone has the equipment to create hypermedia-powered software, but the tools are so arcane that next to nobody has the ability to use them. And in my darkest moments, I can imagine a 2015 in which everyone is constantly connected to a global network of computers, but the whole system is designed to show us ads and spy on us.  
+Technological inequality doesn't require a conspiracy against free software. I don't know about you, but I can imagine a world where the whole tech industry is built on top of free and open source software, and yet anticompetitive practices, institutional prejudices, a culture of credentialism, the venture capital bubble, and the idea that tech workers need to live in the most expensive cities in the country are still endemic issues. I can imagine a world in which computers are a thousand times more powerful than they are today, and nearly everyone has the equipment to create hypermedia-powered software that we couldn't even imagine now, but the tools are so arcane that next to nobody has the ability to use them. And in my darkest moments, I can imagine a 2015 in which everyone is constantly connected to a global network of computers, but the whole system is designed to show us ads and spy on us.  
 
 These are products of the system as much as they are causes, because technology is an open feedback loop. If we want the power of computing to benefit all of humanity -- if we want to make a true bicycle for the mind -- we can't just assume things will work out that way on their own; we need to make this a conscious goal of every decision we make. 
 
@@ -119,9 +162,7 @@ I've presented you two visions of 2015 -- one in which we use a global hypertext
 # Orphaned points
 
 - hypermedia relieves some of the problem of the blank page
-- what hypercard fundamentally got right was that it was ideologically impure -- it was much more focused on providing an environment for experimentation than fulfilling any ideals about hypertext
-- a beginner is able to do twice as much as they could in 1995, but an expert can do a thousand times as much. the power curve has gone from linear to exponential
-- when a task has its accidental complexity removed and if can be done with non-programmer tools it ceases to be called "programming". look towards tools that programmer chauvanism dismisses: excel, twine
+
 
 # Links
 - https://jamesfriend.com.au/running-hypercard-stack-2014
