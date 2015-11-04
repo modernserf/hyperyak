@@ -3,32 +3,26 @@
 
 # Introduction
 
-HyperCard is a programming environment for the Macintosh built around the hypermedia paradigm. HyperCard does this with a cards metaphor -- documents, called stacks, are made of interconnected cards, each of which can contain text, graphics, and even now video. Cards and stacks are also scriptable -- almost anything you can do in a traditional application, you can do from a HyperCard stack.
-
-HyperCard bridges the gap between users and programmers -- you can make presentations and rich media and even simple games without writing a single line of code. But crucially, it also includes a huge library of stacks, widgets and templates -- some for people who are just learning to code and need pieces that they can put together like Legos, some for people who code pretty well but just need some design guidance. HyperCard has something for you at every stage of your development.
-
-One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones that Symbolics offers, but they run on a computer that doesn't cost as much as a house.
-
-And there's one last thing I want to point out -- its very small, it could just be an artifact of disk space considerations, but -- HyperCard wants to be customized. All of the tools I mentioned before, as well as the actual configuration for HyperCard, are done from the Home stack. The Home stack is 
-designed for you to edit it -- it even gives you three blank pages to fill in with links to your own stacks. One of the core patterns in Christopher Alexander's A Pattern Language is that our tools, our homes, our neighborhoods -- its the act of customization that makes them our own and that makes them beautiful. This is the same thing that the free software people mean when they talk about the hacker ethos and why they love Unix and Emacs. This small detail more than anything else speaks to me about the design goals of the team that makes this.
-
-- lampshade Bret Victor "Future of Programming" talk somewhere in intro
-
-# history and definitions of hypertext
-> In Xanadu did Ted Nelson a stately hypertext decree
-
-The terms "hypertext" and "hypermedia", used to mean a nonlinear collection of linked documents, date back to the mid 60s -- they were coined by the visionary/eccentric Ted Nelson as part of his still unimplemented hypermedia system Project Xanadu. 
-
-The immediate ancestor of this idea is the Memex, described in Vannevar Bush's As We May Think. The system imagined here is implemented via automated microfiche, but the fundamental concept of texts designed for nonlinearity, with navigation facilitated by computer, is all laid out here. 
-
-The first implementation of hypertext, much like the first implementation of so many other concepts we take for granted today, was part of NLS, the computer system developed by Doug Englebart's team, particularly the Journal, which was a collaborative hypertext document editor.
-
-The ideas proposed in NLS, including hypermedia, would be further refined throughout the 70s and 80s, in universities and research labs, particularly Xerox PARC. One of the best documented and studied systems was NoteCards, developed for PARCs Lisp environment the year prior to Bill Atkinson starting his work on HyperCard. Their analysis of the challenges of hypermedia systems and predictions of the next generation forms the basis of the next section.
+- intro hypercard with a couple of example stacks
+- "What do we like about software?" or something to that effect
+- single card each of presentation, rolodex, game
+- computers have granted enormous power to people who dedicated themselves to understanding them
+- the personal computer can bring some of that power to everyone
+- one of the more promising paradigms for this is hypermedia
+    + The terms "hypertext" and "hypermedia", used to mean a nonlinear collection of linked documents, date back to the mid 60s -- they were coined by the visionary/eccentric Ted Nelson as part of his still unimplemented hypermedia system Project Xanadu. 
+    + the germ of the idea goes back to the Memex, described in Vannevar Bush's As We May Think. 
+        * he imagines a respository of the worlds knowledge, searchable electronically, as a way to TKTK human understanding
+    + the modern conception of this expands on this concept with enabling people to publish as well as consume
+    + The first implementation of hypertext was the Journal, a collaborative hypertext document editor, developed as part of NLS
+- hypermedia can bridge the gap between users and programmers -- it does not replace programming but it presents a path
 
 # challenges and predictions
-The NoteCards team lays out seven challenges of hypermedia systems, as well as some ideas on how to solve them in the next generation: navigation, composite pages, dynamically-generated pages, computation, versioning, collaboration, and extensibility. Some of these, like computation and extensibility, are already answered in contemporary versions of HyperCard, others, like collaboration, are open questions. 
-
-- note about 25 year timescale -- imagining hypermedia systems in 2015
+- A few years ago, xerox PARC developed a hypermedia system in their Lisp environment, which they called Notecards. More recently, they published an analysis of their work, in which they outline seven challenges of hypermedia systems, as well as some ideas on how to solve them in the next generation: navigation, composite pages, dynamically-generated pages, computation, versioning, collaboration, and extensibility. 
+- the examples ive shown you so far, and indeed, my slides themselves, are made in hypercard
+    + HyperCard is a programming environment for the Macintosh built around the hypermedia paradigm. HyperCard does this with a cards metaphor -- documents, called stacks, are made of interconnected cards, each of which can contain text, graphics, and even now video.   Cards and stacks are also scriptable -- almost anything you can do in a traditional application, you can do from a HyperCard stack.
+- Some of these, like computation and extensibility, are already answered in contemporary versions of HyperCard, others, like collaboration, are open questions. 
+- they were specifically looking at the next generation of hypermedia systems, but i'm going to take the long view -- in the spirit of Bret Victor's landmark paper "The Future of Programming", we're going to look at the modest tools of 1990 and imagine what they will lead to in 25 years
+- I'm gonna go through them one by one and talk about how they fit into my vision of 2015
 
 ## Navigation
 The first question is around means of navigation -- links and search. The primary means of navigating through hypermedia is by following links, but this breaks down as the size of collections increases, or if the nodes aren't structured in a way that lends itself to hierarchical indexes. For example, one of the foundational use cases for hypermedia is in knowledge bases, which require indexes -- more on those later -- but become vastly more useful when you can search them. Now, most hypermedia systems have some form of full-text search. Many also have provisions for searching the metadata that forms the basis of their indexing systems. 
@@ -68,6 +62,13 @@ HyperCard acheives this with a background/foreground model -- the layout of the 
 - hypermedia is a fundamentally limited format. Its a surprisingly versatile one, but it seems silly to be using a computer and refuse to compute
 - And even if we were to stick with a purely declarative document model, there would still be structures of media that the designers of the system wouldn't have considered 
 
+HyperCard bridges the gap between users and programmers -- you can make presentations and rich media and even simple games without writing a single line of code. But crucially, it also includes a huge library of stacks, widgets and templates -- some for people who are just learning to code and need pieces that they can put together like Legos, some for people who code pretty well but just need some design guidance. HyperCard has something for you at every stage of your development.
+
+One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones that Symbolics offers, but they run on a computer that doesn't cost as much as a house.
+
+And there's one last thing I want to point out -- its very small, it could just be an artifact of disk space considerations, but -- HyperCard wants to be customized. All of the tools I mentioned before, as well as the actual configuration for HyperCard, are done from the Home stack. The Home stack is 
+designed for you to edit it -- it even gives you three blank pages to fill in with links to your own stacks. One of the core patterns in Christopher Alexander's A Pattern Language is that our tools, our homes, our neighborhoods -- its the act of customization that makes them our own and that makes them beautiful. This is the same thing that the free software people mean when they talk about the hacker ethos and why they love Unix and Emacs. This small detail more than anything else speaks to me about the design goals of the team that makes this.
+
 - computation
     + something hypercard fundamentally gets right was that it was ideologically impure -- it's much more focused on providing an environment for experimentation than fulfilling any ideals about hypermedia
     + hypercard uses HyperTalk / event model
@@ -95,9 +96,12 @@ HyperCard acheives this with a background/foreground model -- the layout of the 
     + software development is ultimately a support role for the people doing the real work
 
 ## Collaboration & Versioning
-Reflections on NoteCards sees collaboration and versioning as separate challenges, but I suspect one is the answer to the other. Although NLS Journals were designed to be online and multi-user, most hypermedia systems since then have been intended for a single user. The data model of HyperCard, modeled after smalltalk and lisp machine images, purposefully blurs the line between the application code and user data, which is compelling from a perspective of user empowerment, but complicates things when collaborating. 
+Reflections on NoteCards sees collaboration and versioning as separate challenges, but I suspect one is the answer to the other. Although the first hypertext implementation, NLS Journals, were designed to be online and multi-user, most hypermedia systems since then have been intended for a single user. 
+- the big picture of hypermedia isn't a series of disconnected documents, its a massive network where everything is linked together and authors and audiences are one.
 
-Now I know we're a bunch of weirdos but, whether it was through our colleges, or our user groups, or even CompuServe we've all discovered the internet, and I don't think I need to be Marty McFly to know what kind of impact its gonna have on the world in 25 years. Everything we do on our computers today, we're gonna be doing in Cyberspace tomorrow. But if we put a stack up on the BBS now, how would we work on it together without clobbering each other's changes? How would we fix stacks that, whether through malice or accident, are put into an unusable state? 
+So, what are the challenges posed by collaboration? Well, how would we implement this system today? If we put a stack up on the BBS now, how would we work on it together without clobbering each other's changes? How would we fix stacks that, whether through malice or accident, are put into an unusable state? 
+
+Now I know we're a bunch of weirdos but, whether it was through our colleges, or our user groups, or even CompuServe we've all discovered the internet, and I don't think I need to be Marty McFly to know what kind of impact its gonna have on the world in 25 years. Everything we do on our computers today, we're gonna be doing in Cyberspace tomorrow. But 
 
 While you're thinking about that, lets look at a different challenge -- the publishing workflow. What would a hypermedia magazine look like, and how would publishing work? What would a hypermedia publishing _industry_ look like? If hyperzines are cross-referencing each other, or fact-checking each other, how would transcluded quotations point to the document at a certain point in time, or the most recent version? 
 
@@ -106,6 +110,7 @@ A third question: how do we distinguish between collaboration and commentary? An
 The technical answer to this question is the pervasive use of version control, transclusion, and first-class systems of identity. I'm gonna handwave over exactly how this would work, but the general idea is that disk space is growing at an exponential rate and in the future it will be possible to store not just the current state of a hypermedia document but every state it has ever been in. When we work on a document together, we can work on separate branches and then merge then when we're done, or even have our changes continuously zipped together via an operational transform. Annotations and comments would work via a mutual transclusion -- if you write something and I comment on it, I'm transcluding your original article into my document and you're transcluding my annotations into your publication. Notions of identity allow you to manage, to some extent, the privacy of a document, decide who's version of a document is the authoritative one, and facilitate things like whitelisting or blacklisting changes and annotations made by others. 
 
 - something about code is data, and the DVCS model is useful for sharing code as well as managing data
+- The data model of HyperCard, modeled after smalltalk and lisp machine images, purposefully blurs the line between the application code and user data. 
 
 - The human side of this is more complicated. The more we open ourselves to collaboration and community-building, the more time and effort we need to spend moderating those communities.
 - We've all given up on newsgroups or chatrooms because of the destructive force of just a handful of griefers; imagine what our lives will be like when there are trolls wherever we go.
@@ -158,11 +163,6 @@ I've presented you two visions of 2015 -- one in which we use a global hypertext
 (TUMULTUOUS, SUSTAINED APPLAUSE)
 
 ---
-
-# Orphaned points
-
-- hypermedia relieves some of the problem of the blank page
-
 
 # Links
 - https://jamesfriend.com.au/running-hypercard-stack-2014
