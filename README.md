@@ -7,23 +7,15 @@ What is it that we like about computers? Surely, part of it is that it helps us 
 
 The concept that ties these all together is that the computer is a land of pure imagination, where we can let our ideas take form without physical constraint. This is the fundamental promise that computers make to us. But spreadsheets and zork and email are all other people's ideas that we get to inhabit; we are fundamentally limited in what we can do with them. How do we think thoughts that are too big for other people's programs?
 
----
+In many cases, this means you have to become a programmer. Now, I love programming. There is something intrinsically satisfying about it for me -- when the other kids were riding bikes around the block, just for the sake of riding bikes, I was typing `10 print "butts"; 20 goto 10` into a BASIC interpreter. But getting from there to writing anything nontrivial? Frankly, it sucks. Even ignoring the cost of development software, the prospect of writing your own program from scratch is daunting, and a huge distraction from the problem we were trying to solve in the first place.
 
-
-Right now, the answer is to give up your life for a few years while you bang your head against a computer until you understand them. The system we have today has a huge gap between what we identify as users and programmers. This feels like failure. Computers can give you access to enormous power, and the personal computer revolution has made that power accessible _physically_, but there are so few channels 
-
-
-- children on bicycle riding for fun ~= 10 print "butts"; 20 goto 10
-
-I love programming, and like a lot of you I have warm, early memories of typing `10 print "butts"; 20 goto 10` into a BASIC interpreter. 
-
-- hypermedia can bridge the gap between users and programmers -- it does not replace programming but it presents a path
-
----
+There are culprits on both sides of this equation: first, there are the commercial software companies. Unless they specifically make their tools scriptable and extensible, which most of them do not, all that we can do with their software is what they want us to do. But the other side of this, the community of programmers -- we're also responsible. There's a part of our culture that _wants_ programming to be hard; there's a belief that if you are not willing to be the computer's servant, you don't deserve to be its master. We relish in incidental complexity, like schoolboys perpetuating a hazing ritual.
 
 ## Definitions and History
 
-But there are some software paradigms that live in the space between users and programmers. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes back to at least the dawn of computers -- Vannevar Bush, in his essay As We May Think, imagines the Memex -- a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. The term itself comes from Ted Nelson's Project Xanadu from the early 60s; although this has never released any software, a lot of the theory and terminology of hypermedia comes from here. In Nelson's vision, hypermedia is not just a format for publishing existing information but a form of creation -- hypermedia empowers you to write nonlinearly and therefore helps you to _think_ nonlinearly.
+But there are some forms of expression that live in the space between users and programmers. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes back to at least the dawn of computers -- Vannevar Bush, in his essay As We May Think, imagines the Memex -- a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. The term itself comes from Ted Nelson's Project Xanadu from the early 60s; although this has never released any software, a lot of the theory and terminology of hypermedia comes from here. In Nelson's vision, hypermedia is not just a format for publishing existing information but a form of creation -- hypermedia empowers you to write nonlinearly and therefore helps you to _think_ nonlinearly.
+
+The wonderful thing about hypermedia is that its an incredibly expressive medium that could only exist on a computer, but writing it is nothing like writing software. You can build presentations and educational tools and even some simple games without having to think about how the computer will actually implement it. Its a paradigm abstract enough to encompass a vast range of ideas, but simple enough that you don't get bogged-down in implementation details.
 
 There have been quite a few implementations of hypermedia systems since then -- the first one being part of the online system built by Doug Englebart's team at SRI -- but until fairly recently they've been limited to research labs and massively-expensive workstations. All this changed with HyperCard, which takes ideas from hypermedia and object-oriented programming and puts them into an environment that runs on a Mac or a IIGS. 
 
