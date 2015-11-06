@@ -3,26 +3,32 @@
 
 # Introduction
 
-- intro hypercard with a couple of example stacks
-- "What do we like about software?" or something to that effect
-- single card each of presentation, rolodex, game
-- computers have granted enormous power to people who dedicated themselves to understanding them
-- the personal computer can bring some of that power to everyone
-- one of the more promising paradigms for this is hypermedia
-    + The terms "hypertext" and "hypermedia", used to mean a nonlinear collection of linked documents, date back to the mid 60s -- they were coined by the visionary/eccentric Ted Nelson as part of his still unimplemented hypermedia system Project Xanadu. 
-    + the germ of the idea goes back to the Memex, described in Vannevar Bush's As We May Think. 
-        * he imagines a respository of the worlds knowledge, searchable electronically, as a way to TKTK human understanding
-    + the modern conception of this expands on this concept with enabling people to publish as well as consume
-    + The first implementation of hypertext was the Journal, a collaborative hypertext document editor, developed as part of NLS
+What is it that we like about computers? Surely, part of it is that it helps us get stuff done. There are thousands of businesses out there that depend on word processors and spreadsheets and databases. A lot of people out there really love computer games; there's something about inhabiting a virtual world that really connects with them. A select few of us _in cyberspace_ are interested in how it can be a communicator -- how we can interact with people in our community or around the world.
+
+The concept that ties these all together is that the computer is a land of pure imagination, where we can let our ideas take form without physical constraint. This is the fundamental promise that computers make to us. But spreadsheets and zork and email are all other people's ideas that we get to inhabit; we are fundamentally limited in what we can do with them. How do we think thoughts that are too big for other people's programs?
+
+---
+
+
+Right now, the answer is to give up your life for a few years while you bang your head against a computer until you understand them. The system we have today has a huge gap between what we identify as users and programmers. This feels like failure. Computers can give you access to enormous power, and the personal computer revolution has made that power accessible _physically_, but there are so few channels 
+
+
+- children on bicycle riding for fun ~= 10 print "butts"; 20 goto 10
+
+I love programming, and like a lot of you I have warm, early memories of typing `10 print "butts"; 20 goto 10` into a BASIC interpreter. 
+
 - hypermedia can bridge the gap between users and programmers -- it does not replace programming but it presents a path
 
+---
+
+## Definitions and History
+
+But there are some software paradigms that live in the space between users and programmers. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes back to at least the dawn of computers -- Vannevar Bush, in his essay As We May Think, imagines the Memex -- a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. The term itself comes from Ted Nelson's Project Xanadu from the early 60s; although this has never released any software, a lot of the theory and terminology of hypermedia comes from here. In Nelson's vision, hypermedia is not just a format for publishing existing information but a form of creation -- hypermedia empowers you to write nonlinearly and therefore helps you to _think_ nonlinearly.
+
+There have been quite a few implementations of hypermedia systems since then -- the first one being part of the online system built by Doug Englebart's team at SRI -- but until fairly recently they've been limited to research labs and massively-expensive workstations. All this changed with HyperCard, which takes ideas from hypermedia and object-oriented programming and puts them into an environment that runs on a Mac or a IIGS. 
+
 # challenges and predictions
-- A few years ago, xerox PARC developed a hypermedia system in their Lisp environment, which they called Notecards. More recently, they published an analysis of their work, in which they outline seven challenges of hypermedia systems, as well as some ideas on how to solve them in the next generation: navigation, composite pages, dynamically-generated pages, computation, versioning, collaboration, and extensibility. 
-- the examples ive shown you so far, and indeed, my slides themselves, are made in hypercard
-    + HyperCard is a programming environment for the Macintosh built around the hypermedia paradigm. HyperCard does this with a cards metaphor -- documents, called stacks, are made of interconnected cards, each of which can contain text, graphics, and even now video.   Cards and stacks are also scriptable -- almost anything you can do in a traditional application, you can do from a HyperCard stack.
-- Some of these, like computation and extensibility, are already answered in contemporary versions of HyperCard, others, like collaboration, are open questions. 
-- they were specifically looking at the next generation of hypermedia systems, but i'm going to take the long view -- in the spirit of Bret Victor's landmark paper "The Future of Programming", we're going to look at the modest tools of 1990 and imagine what they will lead to in 25 years
-- I'm gonna go through them one by one and talk about how they fit into my vision of 2015
+Now, HyperCard is fascinating stuff and I've got a lot to say about it, but I'm even more interested in what it signifies, and what it could lead to in the future. The team that developed HyperCard's immediate predecessor, Xerox's NoteCards, put together a list of seven unsolved challenges for future hypermedia systems: navigation, composite pages, dynamically-generated pages, computation, versioning, collaboration, and extensibility. They were specifically looking at the next generation of hypermedia systems, but i'm going to take the long view -- in the spirit of Bret Victor's landmark paper "The Future of Programming", we're going to look at the modest tools of 1990 and imagine what they will lead to in 25 years -- in other words, how will hypermedia shape the world of 2015?
 
 ## Navigation
 The first question is around means of navigation -- links and search. The primary means of navigating through hypermedia is by following links, but this breaks down as the size of collections increases, or if the nodes aren't structured in a way that lends itself to hierarchical indexes. For example, one of the foundational use cases for hypermedia is in knowledge bases, which require indexes -- more on those later -- but become vastly more useful when you can search them. Now, most hypermedia systems have some form of full-text search. Many also have provisions for searching the metadata that forms the basis of their indexing systems. 
