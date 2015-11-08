@@ -15,7 +15,7 @@ There are culprits on both sides of this equation: first, there are the commerci
 
 ## Definitions and History
 
-But it doesn't have to be this way. There are some software paradigms that have something for people all across the spectrum, from user to programmer and everyone in between. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes back to at least the dawn of computers: Vannevar Bush, in his essay As We May Think, imagines the Memex, a workstation containing a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. 
+But it doesn't have to be this way. There are some software paradigms that have something for people all across the spectrum, from user to programmer and everyone in between. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes at least as far back as the dawn of computers: Vannevar Bush, in his essay As We May Think, imagines the Memex, a workstation containing a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. 
 
 The terms "hypertext" and "hypermedia" come from Ted Nelson's Project Xanadu from the early 60s; although this has never released any software, a lot of the theory and terminology of hypermedia comes from his writing. In Nelson's vision, hypermedia is not just a format for publishing existing information but a form of creation -- as hypermedia encourages you to write nonlinearly, it therefore helps you to _think_ nonlinearly.
 
@@ -24,7 +24,9 @@ The wonderful thing about hypermedia is that its an incredibly expressive medium
 There have been quite a few implementations of hypermedia systems since then -- the first one being part of the online system built by Doug Englebart's team at SRI -- but until fairly recently they've been limited to research labs and massively-expensive workstations. All this changed with HyperCard, which takes ideas from hypermedia and object-oriented programming and puts them into an environment that runs on a Mac or a IIGS. 
 
 # challenges and predictions
-Now, HyperCard is fascinating software and I've got a lot to say about it, but I'm even more interested in what it signifies, and what it could lead to in the future, particularly for the people between the worlds of user and programmer, and how people at these different levels of expertise will work together. So in the spirit of Bret Victor's landmark paper "The Future of Programming", we're going to look at the modest tools of 1990 and imagine what they will lead to in 25 years -- in other words, how will hypermedia shape the world of 2015?
+HyperCard is fascinating software and I've got a lot to say about it, but it is not the end goal of hypermedia software; its just a starting point. So, in the spirit of Bret Victor's "The Future of Programming", I'm going to look at  trends and contemporary research, and extrapolate.
+
+We can say with a certain sense of inevitablility that computers in 25 years will be vastly more powerful, and that the internet will be vastly more widespread, but we need a little more vision to imagine a world in which everyday computer _users_ can take advantage of this. How will people across different levels of expertise work together? What role will programmers, as we understand them today, play in 2015? 
 
 ## Authors
 The first group I want to think about are the authors of hypermedia. These are people who have embraced hypermedia as a way to replace or augment something like print or film, but are not necessarily even technical people. What can we do to empower them? What are the barriers or limitations of hypermedia as a medium that we can lift?
@@ -48,7 +50,7 @@ Some of the simplest use cases for this would be essentially page layouts -- for
 Transclusion can also be used as a tool of collaboration -- blockquotes in email and usenet replies are essentially a primitive form of transclusion, and are used to create conversational threads. Future hypermedia tools could use this format as the structure of conversation, but flatten them into somethng that is readable. Likewise, future publishing workflows could be built on alternating rounds of writing and annotation between an author and an editor.
 
 ## Extending the model
-So I've talked about some general principles of hypermedia and extensions of the model for authors. But hypermedia is still a fundamentally limited format for writing software -- nothing in the hypermedia model outlined so far enables even simple arithmetic. If we intend to make hypermedia a general-purpose tool and allow for the expression of ideas we can't even conceive of today, it needs to be programmable. 
+So I've talked about some general principles of hypermedia and extensions of the model for authors. But hypermedia is still a fundamentally limited format for writing software -- nothing in the hypermedia model outlined so far enables even simple arithmetic. If we intend to make a general-purpose tool that allows for the expression of ideas we can't even conceive of today, hypermedia can only be the substra it needs to be programmable. 
 
 That said, we should consider Turing completeness our last resort. HyperCard uses a very friendly programming language, HyperTalk, which (like its environment) is heavily influenced by Smalltalk, and features some of the "fix-and-continue" style debugging tools that compiled languages can only dream of. But no matter how "user-friendly" a programming language is, its never friendly enough for all people; all code is, at some level, a necessary evil -- a trade-off between clarity and accessibility against programmer time. So we must fight our instinct as programmers to expose a programmatic API and call it a day -- we need to think about extensibility at different levels -- from configuration to plugins to scripting -- and build software with affordances at each tier.
 
@@ -65,13 +67,21 @@ As the world becomes more connected, it seems inevitable that this ecosystem is 
 Its important to note that this ecosystem, like all the ideas I'm discussing, will need to work at _both ends_ for people with a wide range of abilities. Authors will be using widgets and programmers will be creating them, but the inverse will be true as well -- programmers will want to use this ecosystem to share code, and authors will share widgets they've modified or composed from smaller pieces. These users will have different needs and workflows but still have the same goals; just as transclusion can provide different views onto the same content, we can provide graphical and code-based views into onto same software.
 
 ### Workflows & Frameworks
-The unit of abstraction in this ecosystem won't necessarily always be a widget. As industries develop workflows around hypermedia, or are created to leverage it, 
-- wiki, CMS, games have frameworks
-- framework provides training ground for people to become programmers
-    + One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones offered by Xerox or Symbolics, but they run on a computer that doesn't cost as much as a house.
-- user-facing workflows eg publishing will have whole packages implementing high-level workflows over low-level systems
-    + software within software, ecosystems within ecosystems -- fractal design
-- frameworks will have their own internal ecosystems/cultures which can form test beds for the larger community
+The unit of abstraction in this ecosystem won't always be widgets; common workflows and widget collections will aggregate into frameworks. Knowledge bases, online magazines and adventure games all work pretty well within the rubric of hypermedia, but each have a specific set of needs; these groups will tend to develop their own standards and ecosystems and social mores within those of hypermedia as a whole.
+
+This raises a lot of programmers' hackles. They see frameworks as a moral hazard: they fragment the ecosystem, they encourage inefficient code, they rot young programmers' brains. This is just another case of programmer chauvinism. 
+
+Yes, frameworks create their own ecosystems. This would be troubling if using one framework precluded you from any code outside of it, but that's almost never the case. Instead, we can see the cultures around frameworks as a means to bring people into the community as a whole; we can see frameworks as places for patterns and idioms to mature.
+
+Yes, frameworks add another layer of indirection, but all software is indirection -- you don't get to mock frameworks that rely on hypermedia systems when those systems depend on an OS that depends on a hardware platform that depends on microcode that depends on chips that depend on transistors that depend on -- you get the picture. Even physicists depend on abstractions. Every one of these layers is a trade-off between machine efficiency and human efficiency; given that we're not doubling the number of neurons in our brain every 18 months I think its fair to put the burden on the machines.
+
+And the most pernicious one: yes, new programmers will learn frameworks before they learn the fundamentals. Well, yeah, why wouldn't they? Everything we know about learning suggests that its a process that starts with concrete concepts and only after becoming proficient in those do we understand them in the abstract. When we learn our mother tongue, its by repeating words and phrases and experiementing with them as we discern patterns; formal knowledge of syntax and grammar come much later. 
+
+This process will be the same for a lot of people who become programmers. "When I was a noob, I spoke like a noob, I thought like a noob..." If a framework allows people to be productive even when they barely understand how to program, then the system works! If some people are content remaining at that level of expertise, that's their prerogative. And if they outgrow the framework -- well, that doesn't mean that the framework was bad, its just not _for them_ anymore. We don't need to perpetuate the "rot your brain" canard; no matter how many times you repeat this, Djikstra's still gonna think you're an idiot because you didn't learn by writing proofs. 
+
+- frameworks responsibility to adapt to multiple levels of use
+- One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones offered by Xerox or Symbolics, but they run on a computer that doesn't cost as much as a house.
+- we can design frameworks that are educational from reading/modifying source
 
 ### Social Mores
 - In either the outer or inner ecosystems, the hard part isn't the technology; its managing people.
@@ -87,6 +97,12 @@ Hypermedia is the product of futurists and philosophers as much as it is of engi
 
 1990 is a much different world than 1945, but there are definite similarities -- we too are living at the conclusion of a war of sorts with the fall of the Iron Curtain. But this is a war fought culturally and economically -- as the first computers were instrumental in the Allied victory back then, the personal computer and tech industry have been a driving force of capitalism.
 
+- software eating the world
+- all companies become software companies
+- instead of creation of software becoming component of many jobs, it increases dependency on small number of programmers
+- money and power concentrates in geeks 
+- software social order recapitulates property social order
+
 ## The Bicycle for the Mind
 There's a metaphor that Apple uses to talk about the personal computer -- the bicycle for the mind. Quoting Steve Jobs:
 
@@ -97,6 +113,7 @@ There's a metaphor that Apple uses to talk about the personal computer -- the bi
 - both in the mechanical sense, of a tool that increases human ability but also in the sense of being something kind of cheap and democratic
 - instead of creating a bicycle for the mind, we’ve created a car
 - which creates a car culture, air pollution, auto accidents, cities designed against pedestrians, the suburbs etc
+- cars are expensive liabilities that perpetuate debt cycles
 - the automotive industry has a self-perpetuating virus quality that the computer industry follows
 
 ## Conspiracies vs Systematic Injustice
@@ -113,14 +130,15 @@ These are products of the system as much as they are causes, because technology 
 
 We're on the wrong trajectory today, but we're not doomed. SRI and ARPA show that we can repurpose our efforts from war into peace. Bell Labs and PARC show that commercial technology companies can direct their money and efforts into research that has revolutionary impact on the world. World-changing technology can come from anywhere -- for all we know the technology that dominates the next 25 years could come out of a side project at a European particle accelerator. But these are exceptional cases -- the future we want requires all of our participation. 
 
-I've presented you two visions of 2015 -- one in which we use a global hypertext system to increase human understanding, and one in which we use it to shackle ourselves to the commercial software industry. The basic technology is the same; all the difference lies in how we choose to use it.
+I've presented you two visions of 2015 -- one in which we use a global hypermedia system to increase human understanding, and one in which we use it to shackle ourselves to the commercial software industry. The basic technology is the same; all the difference lies in how we choose to use it.
 
 (TUMULTUOUS, SUSTAINED APPLAUSE)
 
 ---
 
 # Links
-- https://jamesfriend.com.au/running-hypercard-stack-2014
-- http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.2308&rep=rep1&type=pdf
-- http://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/
-- https://www.youtube.com/watch?v=ob_GX50Za6c
+- [Running a Hypercard stack on a modern Mac](https://jamesfriend.com.au/running-hypercard-stack-2014)
+- [Reflections On Notecards: Seven Issues For The Next Generation of Hypermedia Systems](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.124.2308&rep=rep1&type=pdf)
+- [Vannevar Bush -- As We May Think](http://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/)
+- [The Bicycle for the Mind](https://www.youtube.com/watch?v=ob_GX50Za6c)
+- [Bret Victor -- The Future of Programming](https://vimeo.com/71278954)
