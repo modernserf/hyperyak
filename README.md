@@ -97,11 +97,11 @@ Hypermedia is the product of futurists and philosophers as much as it is of engi
 
 1990 is a much different world than 1945, but there are definite similarities -- we too are living at the conclusion of a war of sorts with the fall of the Iron Curtain. But this is a war fought culturally and economically -- as the first computers were instrumental in the Allied victory back then, the personal computer and tech industry have been a driving force of capitalism.
 
-- software eating the world
-- all companies become software companies
-- instead of creation of software becoming component of many jobs, it increases dependency on small number of programmers
-- money and power concentrates in geeks 
-- software social order recapitulates property social order
+Home computers have been around for barely ten years, but in that time its already had world-changing impact and made billions of dollars. And computers have absolutely become easier to use since then. But I see a worrying trend -- as more and more "regular people" get home computers, consumer software has focused on being as "appliance-like" as possible. Extensibility, if available at all, is a "pro" feature.
+
+Including HyperCard. While the current version comes for free with every Mac, Apple thinks they can monetize it, so next years version is going to be paid software, with a crippled "player" version available for free. When I say I'm more interested in the ideas in HyperCard than the program itself, I mean that I don't think it has a future. I'd be willing to bet that HyperCard will never see another major update and will be unceremoniously killed in 2004 when it can no longer run on new computers.
+
+But more than that, I'm troubled that while our world is becoming increasingly dependent on software, the creation of that software isn't being democratized. If anything, we've made programming an even more elite field, where only rock stars and 10xers need apply. In many ways, the software industry seems to be recapitulating the excesses of the gilded age, only with technology as the lever of class stratification instead of railroads and oil.
 
 ## The Bicycle for the Mind
 There's a metaphor that Apple uses to talk about the personal computer -- the bicycle for the mind. Quoting Steve Jobs:
@@ -109,20 +109,15 @@ There's a metaphor that Apple uses to talk about the personal computer -- the bi
 > I read a study that measured the efficiency of locomotion for various species on the planet. The condor used the least energy to move a kilometer. Humans came in with a rather unimpressive showing about a third of the way down the list....That didn't look so good, but then someone at Scientific American had the insight to test the efficiency of locomotion for a man on a bicycle and a man on a bicycle blew the condor away. That's what a computer is to me: the computer is the most remarkable tool that we've ever come up with. It's the equivalent of a bicycle for our minds.
 
 ## Why bicycles?
-- the idea of the Bicycle for the Mind is an important metaphor on a lot of levels
-- both in the mechanical sense, of a tool that increases human ability but also in the sense of being something kind of cheap and democratic
-- instead of creating a bicycle for the mind, we’ve created a car
-- which creates a car culture, air pollution, auto accidents, cities designed against pedestrians, the suburbs etc
-- cars are expensive liabilities that perpetuate debt cycles
-- the automotive industry has a self-perpetuating virus quality that the computer industry follows
+I like this metaphor -- enough to name this talk after it -- because it speaks to me on a couple of different levels. Not only is a bicycle a tool that increases human ability, but its a relatively cheap one, too. You can sink a lot of money into a nice one, but even a cheap single-speed Huffy will get you around. Its a machine that's eminently fixable and understandable, suitable for children at play and adults at work. 
+
+The computers we have today are not bicycles. Instead we've got something more like a car for the mind. Which, you know, does get you around and is easier and more comfortable than a bike. But at what cost? When we decided that America would be a place for cars, we signed ourselves up for urban sprawl, air pollution, car crashes, and oil wars. And even on a personal level, cars as much liabilities as they are assets -- I'm sure we've all known people working terrible jobs to keep their junker running so they can get to their terrible job.
 
 ## Conspiracies vs Systematic Injustice
-- auto industry conspires against streetcars
-- apple changed hypercard from free to paid under pressure from commercial software publishers
-- but no conspiracy is necessary to support the status quo, only indifference
-- National City Lines was only one small part of the car-ification of America
-- the commercialization of HyperCard is Apple trying to increase revenue
-- wealth inequality doesn't require an international cabal of bankers, just cost-of-living and compound interest
+So how did it get this way? How did we get so far off course? Some people look at this through a conspiracy lens. They think the reason Apple started charging money for HyperCard is because the commercial software publishers were afraid that if everyone could make their own software, then nobody would buy theirs. 
+
+The unspoken premise of conspiracy theories is that the the world would be fair if there weren't outside interference. But no conspiracy is necessary to support the status quo, only indifference. Wealth inequality doesn't require an international cabal of bankers, just cost-of-living and compound interest
+And HyperCard -- well, the bean counters know that they can make some money _right now_ if they sell it for a lot of money, and this is entirely consistent with them marketing the Mac as a luxury good for wealthy dilletantes.
 
 Technological inequality doesn't require a conspiracy against free software. I don't know about you, but I can imagine a world where the whole tech industry is built on top of free and open source software, and yet anticompetitive practices, institutional prejudices, a culture of credentialism, the venture capital bubble, and the idea that tech workers need to live in the most expensive cities in the country are still endemic issues. I can imagine a world in which computers are a thousand times more powerful than they are today, and nearly everyone has the equipment to create hypermedia-powered software that we couldn't even imagine now, but the tools are so arcane that next to nobody has the ability to use them. And in my darkest moments, I can imagine a 2015 in which everyone is constantly connected to a global network of computers, but the whole system is designed to show us ads and spy on us.  
 
