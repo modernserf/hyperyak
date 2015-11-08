@@ -79,18 +79,7 @@ And the most pernicious one: yes, new programmers will learn frameworks before t
 
 This process will be the same for a lot of people who become programmers. "When I was a noob, I spoke like a noob, I thought like a noob..." If a framework allows people to be productive even when they barely understand how to program, then the system works! If some people are content remaining at that level of expertise, that's their prerogative. And if they outgrow the framework -- well, that doesn't mean that the framework was bad, its just not _for them_ anymore. We don't need to perpetuate the "rot your brain" canard; no matter how many times you repeat this, Djikstra's still gonna think you're an idiot because you didn't learn by writing proofs. 
 
-- frameworks responsibility to adapt to multiple levels of use
-- One of the wonderful things about the Smalltalk and Lisp machines, that the original Mac just didn't have the horsepower for, was that all the software was open -- you can see the source code and the assets and even stuff like the object hierarchies and event systems of the programs as they run. HyperCard's tools aren't nearly as sophisticated as the ones offered by Xerox or Symbolics, but they run on a computer that doesn't cost as much as a house.
-- we can design frameworks that are educational from reading/modifying source
-
-### Social Mores
-- In either the outer or inner ecosystems, the hard part isn't the technology; its managing people.
-- Every community will have different mores and different requirements for their collaboration and moderation thereof, best to provide low-level access to version control and identity and let communities build their own solutions, rather than imposing a one-size-fits-all system
-- empathy important on moderation side as well 
-    + lampshade linus' rants
-    + forking a community should be a last resort
-    + prophecy of eternal september
-    + communities live and die by their ability to welcome new people
+If we are concerned that the next generation of programmers are going to learn to code via frameworks, then we should see it as our duty to provide them with frameworks that they can grow with as they move from little bits of scriptng glue to writing business logic to modifying the core. And we should see it as our duty to design frameworks that they can learn from, that demonstrate ideal coding practices and design patterns.
 
 # Conclusions
 Hypermedia is the product of futurists and philosophers as much as it is of engineers and scientists. Its important to acknowledge that predictions are a product of the time in which they are made. As We May Think was written during the end and immediate aftermath of the Second World War, and the desire to turn the eye of science and technology away from war is a response to what we now know as the Military-Industrial Complex. 

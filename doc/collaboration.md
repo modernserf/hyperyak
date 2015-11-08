@@ -20,3 +20,12 @@ The technical answer to this question is the pervasive use of version control, t
     + every community has different needs, and they should be free to build something that fits their needs instead of using a one-size-fits-all solution
     + but users shouldn't be expected to work in these primitives -- they should be able to use this in terms of their domain objects, not in terms of the version graph
     + we'll know we've failed if the standard way to manage versions is with a command-line tool
+
+### Social Mores
+- In either the outer or inner ecosystems, the hard part isn't the technology; its managing people.
+- Every community will have different mores and different requirements for their collaboration and moderation thereof, best to provide low-level access to version control and identity and let communities build their own solutions, rather than imposing a one-size-fits-all system
+- empathy important on moderation side as well 
+    + lampshade linus' rants
+    + forking a community should be a last resort
+    + prophecy of eternal september
+    + communities live and die by their ability to welcome new people
