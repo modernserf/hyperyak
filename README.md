@@ -102,37 +102,42 @@ We also see this work out in the tools we use. Emacs has already been around for
 This is the standard we should be living up to with the tools we create -- we can make the whole hypermedia authorship experience _ownable_ from the big picture down to the smallest parts.
 
 ## Ecosystem
-    + version control enables vendoring without breakage
-    + version control, customization & transclusion enable remixing & bundling, even for non programmers
-    + enables collaboration via sharing
-    + programmer duty to make this easy to use
-Apple provides quite a few widgets with HyperCard -- for example, my slide navigation -- and there's a small community of third-party widget makers as well.
+```
+screen showing Apple's widgets
+```
+Where do widgets come from? At first, a lot of them are going to be built in. 
+Apple provides quite a few widgets with HyperCard -- for example, my slide navigation. Effectively, this is HyperCard's standard library.
 
-As the world becomes more connected, it seems inevitable that this ecosystem is going to eclipse and eventually dwarf the first-party contributions. This becomes its own kind of collaboration, as people who have never met nevertheless become interdependent on eachothers code. First party widgets will be important as reference implementations that de facto standards crystalize around, but its even more important that the creators of the hypermedia systems of tomorrow provide an infrastructure for this ecosystem to bloom -- this means a standard set of tools for people to find and share widgets.
+```
+screen showing 3rd party widgets
+```
+But there's also a small community of third-party widget makers, some selling them commercially but many distributing them as freeware. And while this community is small now, it seems inevitable that as the world becomes more connected, this ecosystem is going to eclipse and eventually dwarf the first-party contributions. 
+
+This becomes its own kind of collaboration, as people who have never met nevertheless become interdependent on eachothers code. First party widgets will be important as reference implementations that de facto standards crystalize around, but its even more important that the creators of the hypermedia systems of tomorrow provide an infrastructure for this ecosystem to bloom -- this means a standard set of tools for people to find and share widgets. And first-class version control will mean that authors can use 3rd party code without worrying about dependency hell.
 
 Its important to note that this ecosystem, like all the ideas I'm discussing, will need to work at _both ends_ for people with a wide range of abilities. Authors will be using widgets and programmers will be creating them, but the inverse will be true as well -- programmers will want to use this ecosystem to share code, and authors will share widgets they've modified or composed from smaller pieces. These users will have different needs and workflows but still have the same goals; just as transclusion can provide different views onto the same content, we can provide graphical and code-based views into onto same software.
 
 
 ### Workflows & Frameworks
-    + transclusion enables frameworks of widgets to be packaged together
-    + ecosystem enables framework to develop community
-    + customization & community provides test bed for new ideas
-    + customization provides starting point for authors becoming programmers
-    + enables collaboration via shared workflows
-    + duty of programmers to make frameworks that work across skill levels
-    + "   " provide good examples for beginner programmers
 The unit of abstraction in this ecosystem won't always be widgets; common workflows and widget collections will aggregate into frameworks. Knowledge bases, online magazines and adventure games all work pretty well within the rubric of hypermedia, but each have a specific set of needs; these groups will tend to develop their own standards and ecosystems and social mores within those of hypermedia as a whole.
 
 This raises a lot of programmers' hackles. They see frameworks as a moral hazard: they fragment the ecosystem, they encourage inefficient code, they rot young programmers' brains. This is just another case of programmer chauvinism. 
 
 Yes, frameworks create their own ecosystems. This would be troubling if using one framework precluded you from any code outside of it, but that's almost never the case. Instead, we can see the cultures around frameworks as a means to bring people into the community as a whole; we can see frameworks as places for patterns and idioms to mature.
 
+```
+diagram of all the dependencies from stack to transistor
+```
 Yes, frameworks add another layer of indirection, but all software is indirection -- you don't get to mock frameworks that rely on hypermedia systems when those systems depend on an OS that depends on a hardware platform that depends on microcode that depends on chips that depend on transistors that depend on -- you get the picture. Even physicists depend on abstractions. Every one of these layers is a trade-off between machine efficiency and human efficiency; given that we're not doubling the number of neurons in our brain every 18 months I think its fair to put the burden on the machines.
 
 And the most pernicious one: yes, new programmers will learn frameworks before they learn the fundamentals. Well, yeah, why wouldn't they? Everything we know about learning suggests that its a process that starts with concrete concepts and only after becoming proficient in those do we understand them in the abstract. When we learn our mother tongue, its by repeating words and phrases and experiementing with them as we discern patterns; formal knowledge of syntax and grammar come much later. 
 
 This process will be the same for a lot of people who become programmers. "When I was a noob, I spoke like a noob, I thought like a noob..." If a framework allows people to be productive even when they barely understand how to program, then the system works! If some people are content remaining at that level of expertise, that's their prerogative. And if they outgrow the framework -- well, that doesn't mean that the framework was bad, its just not _for them_ anymore. We don't need to perpetuate the "rot your brain" canard; no matter how many times you repeat this, Djikstra's still gonna think you're an idiot because you didn't learn by writing proofs. 
 
+
+```
+view source programming
+```
 If we are concerned that the next generation of programmers are going to learn to code via frameworks, then we should see it as our duty to provide them with frameworks that they can grow with as they move from little bits of scriptng glue to writing business logic to modifying the core. And we should see it as our duty to design frameworks that they can learn from, that demonstrate ideal coding practices and design patterns.
 
 # Conclusions
