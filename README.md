@@ -52,7 +52,10 @@ HyperCard stacks have a simple form of abstraction where the cards have independ
 
 ```
 examples of transclusion as different parts of layout:
-masthead, sidebar, article, teasers, blockquotes
+masthead, sidebar, article, teasers, blockquotes, images
+article gags:
+14 Babies who look like Mikhail Gorbachev
+MC Hammer's unstoppable success
 ```
 A more generalized version of this is transclusion -- embedding one document inside another. Its not a copy -- its more like a link, where the transcluded document is inserted dynamically. It allows for much more granular separations of content and layout than layers alone.
 
@@ -83,28 +86,28 @@ One of the things people wonder about with links and transclusion is if they ref
 Version control systems aren't necessarily known for their ease of use. Its important to keep in mind that different users will have different needs and expectations of these systems, and that we don't need everyone to fit a one-size-fits-all solution.
 
 # Widgets
-    + enabled by transclusion
-    + lets author integrate work of programmer without being directly dependent on them
 As I mentioned earlier, hypermedia is an effective, but limited, paradigm for writing software. HyperCard extends the paradigm with the HyperTalk language, a very user-friendly, Smalltalk-influenced environment. But no matter how "user-friendly" a programming language is, its never friendly enough for all people; all code is, at some level, a necessary evil -- a trade-off between clarity and accessibility against programmer time. We should consider Turing completeness our last resort.
 
 So we must fight our instinct as programmers to expose a programmatic API and call it a day -- we need to think about extensibility at different levels -- from configuration to plugins to scripting -- and build software with affordances at each tier.
 
-One of the ways that this extensibility can be made accessible to hypermedia authors is through widgets. By "widget" I mean a block of interactive content that you can transclude into a document without having to concern yourself with its implementation details. Apple provides quite a few of these with HyperCard -- for example, my slide navigation -- and there's a small community of third-party widget makers as well.
+One of the ways that this extensibility can be made accessible to hypermedia authors is through widgets. By "widget" I mean a block of interactive content that you can transclude into a document without having to concern yourself with its implementation details. And their self-contained nature allow authors to integrate the work of programmers without being directly dependent on them.
 
 ### Customization
-    + encourages ownership
-    + customizable widgets increase author empowerment
-    + tools as flexible as the software they create
-    + programmers duty to enable customization
+Ideally, widgets aren't just black boxes. Our goal, after all, is to make the boundaries between use and programming permeable, and providing hooks for customization is a big part of that.
+
 In _A Pattern Language_, Christopher Alexander frequently discusses the role of customization in architecture, and he repeatedly argues that the process of customizing and modifying buildings over time, and the irregularity and idiosyncracy that it produces, is what makes buildings and cities useful and beautiful. Buildings that are adaptable encourage a feeling of ownership in a far deeper sense than property laws, and they allow for an evolutionary process to transform them, where fashions come and go but a timeless style emerges.
 
-This same ideal can apply to software. Emacs has already been around for fifteen years and could very well be around in a hundred, and for a large part this is because its so focused on customizability -- it _wants_ to be customized. Likewise, HyperCard encourages a similar pattern of ownership: HyperCard is configured through modifications to the Home stack, and they even provide you three blank pages to fill in with links to the stacks you've written or collected. 
+We also see this work out in the tools we use. Emacs has already been around for fifteen years and could very well be around in a hundred, and for a large part this is because its so focused on customizability -- it _wants_ to be customized. Likewise, HyperCard encourages a similar pattern of ownership: HyperCard is configured through modifications to the Home stack, and they even provide you three blank pages to fill in with links to the stacks you've written or collected. 
+
+This is the standard we should be living up to with the tools we create -- we can make the whole hypermedia authorship experience _ownable_ from the big picture down to the smallest parts.
 
 ## Ecosystem
     + version control enables vendoring without breakage
     + version control, customization & transclusion enable remixing & bundling, even for non programmers
     + enables collaboration via sharing
     + programmer duty to make this easy to use
+Apple provides quite a few widgets with HyperCard -- for example, my slide navigation -- and there's a small community of third-party widget makers as well.
+
 As the world becomes more connected, it seems inevitable that this ecosystem is going to eclipse and eventually dwarf the first-party contributions. This becomes its own kind of collaboration, as people who have never met nevertheless become interdependent on eachothers code. First party widgets will be important as reference implementations that de facto standards crystalize around, but its even more important that the creators of the hypermedia systems of tomorrow provide an infrastructure for this ecosystem to bloom -- this means a standard set of tools for people to find and share widgets.
 
 Its important to note that this ecosystem, like all the ideas I'm discussing, will need to work at _both ends_ for people with a wide range of abilities. Authors will be using widgets and programmers will be creating them, but the inverse will be true as well -- programmers will want to use this ecosystem to share code, and authors will share widgets they've modified or composed from smaller pieces. These users will have different needs and workflows but still have the same goals; just as transclusion can provide different views onto the same content, we can provide graphical and code-based views into onto same software.
