@@ -1,0 +1,17 @@
+### Navigation
+One common use case, and I suppose the original use case for hypermedia, is the knowledge base. Links between articles are great for finding related information, but how does one get started? 
+
+The first approach is via an index. Now, a hypermedia author could certainly write their own table of contents, and keep it up to date manually, but this is tedious, error-prone work that a computer is much better at. HyperCard offers some primitive forms of indexing, but the systems of the future will require ways to dynamically generate indexes based on the content and metadata of the articles. Metadata could also be extracted from the content of the document -- long documents could have an outline generated dynamically, or the links within a document could be collected into footnotes.
+
+The second approach is search. Now, most hypermedia systems have some form of full-text search. But search becomes much more powerful when you combine it with metadata and structural analysis -- that is, the relationships between pages based on their links. One obvious use case, particularly in a large and noisy data set, would be ranking search results by relevance based on not just the content of the pages but also the pages that it links to and those that link to it.
+
+Even more interesting opportunities arise when you combine these approaches with the authoring process. For example, by analyzing article text and links, the system could suggest, given that A links to C and B links to C, that A should also link to B. Or conversely, if A cites a section of B that in turn cites A, that there's a circular dependency between these concepts.
+
+### Transclusion
+An extension of the idea of linking documents is embedding one within another. Ted Nelson, lover of neologisms, calls this "transclusion" -- in the Xanadu model, hypermedia documents can be composed partially or entirely of dynamic transclusions of other documents. This is kind of an abstract concept, so let me give some examples:
+
+The platonic ideal is something like a cross between a link and a block quotation: the quote isn't a transcription of its source, it _is_ the source, dynamically inserted. But the basic idea can work at many different sizes, from building layouts to inserting annotations. 
+
+Some of the simplest use cases for this would be essentially page layouts -- for example, a page could be split into frames, with a table of contents on one side with the content on the other. More sophisticated uses of transclusion could allow for separations of content from presentation -- for example, there could be separate layouts for teachers and students, or authors and readers, that share their basic content but feature different annotations and supplementary materials.
+
+Transclusion can also be used as a tool of collaboration -- blockquotes in email and usenet replies are essentially a primitive form of transclusion, and are used to create conversational threads. Future hypermedia tools could use this format as the structure of conversation, but flatten them into somethng that is readable. Likewise, future publishing workflows could be built on alternating rounds of writing and annotation between an author and an editor.

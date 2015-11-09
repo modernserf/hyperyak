@@ -3,70 +3,121 @@
 
 # Introduction
 
-What is it that we like about computers? A lot of people I meet these days say it was when they first saw PageMaker and realized that publishing could just be about writing and design, without having to deal with paper and glue. I know quite a few people whoe really love computer games; there's something about inhabiting a virtual world that really connects with them. A select few of us _in cyberspace_ are interested in how it can be a communicator -- how we can interact with people in our community or around the world.
+What is it that we like about computers? A lot of people I meet these days say it was when they first saw PageMaker and realized that publishing could just be about writing and design, without having to deal with paper and glue. Some people love getting lost in the virtual worlds of a computer game. And a select few of us find community with people across the world _in cyberspace_.
 
-The concept that ties these all together is that the computer is a land of pure imagination, where we can let our ideas take form without physical constraint. This is the fundamental promise that computers make to us. But spreadsheets and zork and email are all other people's ideas that we get to inhabit; we are fundamentally limited in what we can do with them. How do we think thoughts that are too big for other people's programs?
+For all of us, the computer is a land of pure imagination, where we can let our ideas take form without physical constraint. This is the fundamental promise that computers make to us. But spreadsheets and zork and email are all other people's ideas that we get to inhabit; we are fundamentally limited in what we can do with them. How do we think thoughts that are too big for other people's programs?
 
-In many cases, this means you have to become a programmer. Now, I love programming. There is something intrinsically satisfying about it for me -- when the other kids were riding bikes around the block, just for the sake of riding bikes, I was typing `10 print "butts"; 20 goto 10` into a BASIC interpreter. But getting from there to writing anything nontrivial? Frankly, it sucks. Even ignoring the cost of development software, the prospect of writing your own program from scratch is daunting, and a huge distraction from the problem you were trying to solve in the first place.
+```
+My first computer program:
+10 PRINT "BUTTS" 
+20 GOTO 10
+```
+
+
+In many cases, this means you have to become a programmer. Now, I love programming. There is something intrinsically satisfying about it for me -- when the other kids were riding bikes around the block, just for the sake of riding bikes, I was typing into a BASIC interpreter. But getting from there to writing anything nontrivial? Frankly, it sucks. Even ignoring the cost of development software, the prospect of writing your own program from scratch is daunting, and a huge distraction from the problem you were trying to solve in the first place.
 
 The crux of the issue is that we pretend that there's only two kinds of people out there -- users and programmers -- but there's a vast range of human experience between these categories, and we do nothing for them. 
 
 There are culprits on both sides of this equation: first, there are the commercial software companies. A lot of them see their power users as an audience too small to matter; the overhead of making their tools pluggable or scriptable is not worthwhile. But the other side of this, the community of programmers -- we're also responsible. There's a part of our culture that _wants_ programming to be hard and we view these "noobs" with contempt; if they can do it, then it can't be "real programming", that they haven't paid their dues. It resembles nothing so much as schoolboys perpetuating generations-old hazing rituals.
 
-## Definitions and History
+## Hypermedia
+```
+diagram of a stack, showing links
+```
+But it doesn't have to be this way. There are some software paradigms that have something for people all across the spectrum, from user to programmer and everyone in between. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. 
 
-But it doesn't have to be this way. There are some software paradigms that have something for people all across the spectrum, from user to programmer and everyone in between. The one I'm going to be talking about today is hypermedia: in its simplest form, its a nonlinear collection of linked documents. The germ of the idea goes at least as far back as the dawn of computers: Vannevar Bush, in his essay As We May Think, imagines the Memex, a workstation containing a collection of the world's knowlege in microfiche, with an automated system for travelling between cross-references. 
+This covers an astounding number of use cases that would otherwise have to be done with custom software. People can build interactive presentations, databases, and even simple games without writing any code whatsoever; its all done with linked pages. But when you do hit the limitations of the paradigm, its a surprisingly good substrate for graphical software.
 
-The terms "hypertext" and "hypermedia" come from Ted Nelson's Project Xanadu from the early 60s; although this has never released any software, a lot of the theory and terminology of hypermedia comes from his writing. In Nelson's vision, hypermedia is not just a format for publishing existing information but a form of creation -- as hypermedia encourages you to write nonlinearly, it therefore helps you to _think_ nonlinearly.
+```
+Timeline of Hypermedia systems:
+1945: Vannevar Bush, "As We May Think": hypertext via microfiche
+1960: Ted Nelson, Project Xanadu: coinage of terms "hypertext" and "hypermedia"
+1968: Doug Englebart, NLS/Augment: first implementation 
+1970s-80s: a bunch of stuff
+1988: HyperCard
+```
 
-The wonderful thing about hypermedia is that its an incredibly expressive medium that could only exist on a computer, but writing it is nothing like writing software. You can build presentations and educational tools and even some simple games without having to think about how the computer will actually implement it. Its a paradigm abstract enough to encompass a vast range of ideas, but simple enough that you don't get bogged-down in implementation details.
-
-There have been quite a few implementations of hypermedia systems since then -- the first one being part of the online system built by Doug Englebart's team at SRI -- but until fairly recently they've been limited to research labs and massively-expensive workstations. All this changed with HyperCard, which takes ideas from hypermedia and object-oriented programming and puts them into an environment that runs on a Mac or a IIGS. 
+The germ of the idea goes at least as far back as the dawn of computers, and there have been quite a few implementations, but until fairly recently they've been limited to research labs and massively-expensive workstations. All this changed with HyperCard, which takes ideas from hypermedia and object-oriented programming and puts them into an environment that runs on a Mac or a IIGS. 
 
 # challenges and predictions
 HyperCard is fascinating software and I've got a lot to say about it, but it is not the end goal of hypermedia software; its just a starting point. So, in the spirit of Bret Victor's "The Future of Programming", I'm going to look at  trends and contemporary research, and extrapolate.
 
-We can say with a certain sense of inevitablility that computers in 25 years will be vastly more powerful, and that the internet will be vastly more widespread, but we need a little more vision to imagine a world in which everyday computer _users_ can take advantage of this. How will people across different levels of expertise work together? What role will programmers, as we understand them today, play in 2015? 
+Its a safe bet that computers in 25 years will be vastly more powerful, and that the internet will be vastly more widespread, but we need a little more vision to imagine a world without barriers between users and programmers. So I'll try to answer two questions: how will people across different levels of expertise work together? And: what role will programmers, as we understand them today, play in 2015? 
 
-## Authors
-The first group I want to think about are the authors of hypermedia. These are people who have embraced hypermedia as a way to replace or augment something like print or film, but are not necessarily even technical people. What can we do to empower them? What are the barriers or limitations of hypermedia as a medium that we can lift?
+Let's call the category of people between users and programmers "authors." These are people who have embraced hypermedia as a way to replace or augment something like print or film, but are not necessarily even technical people. What will their work look like, and what can we do to empower them? 
 
-### Navigation
-One common use case, and I suppose the original use case for hypermedia, is the knowledge base. Links between articles are great for finding related information, but how does one get started? 
+## Transclusion
+`animation of moving background under cards`
+HyperCard stacks have a simple form of abstraction where the cards have independent foreground layers and a shared background layer. Its limited but pretty effective -- content in the foreground can refer to fields in the background, providing some separation of content and presentation. 
 
-The first approach is via an index. Now, a hypermedia author could certainly write their own table of contents, and keep it up to date manually, but this is tedious, error-prone work that a computer is much better at. HyperCard offers some primitive forms of indexing, but the systems of the future will require ways to dynamically generate indexes based on the content and metadata of the articles. Metadata could also be extracted from the content of the document -- long documents could have an outline generated dynamically, or the links within a document could be collected into footnotes.
+```
+examples of transclusion as different parts of layout:
+masthead, sidebar, article, teasers, blockquotes
+```
+A more generalized version of this is transclusion -- embedding one document inside another. Its not a copy -- its more like a link, where the transcluded document is inserted dynamically. It allows for much more granular separations of content and layout than layers alone.
 
-The second approach is search. Now, most hypermedia systems have some form of full-text search. But search becomes much more powerful when you combine it with metadata and structural analysis -- that is, the relationships between pages based on their links. One obvious use case, particularly in a large and noisy data set, would be ranking search results by relevance based on not just the content of the pages but also the pages that it links to and those that link to it.
+```
+RapGenius-style annotations (on 911 is a Joke)
+Tumblr-style reply walls
+diagram showing combination of source and commentary
+```
+Transclusion also provides a basis for collaboration: transclusions can be used for annotations and threaded conversations.
 
-Even more interesting opportunities arise when you combine these approaches with the authoring process. For example, by analyzing article text and links, the system could suggest, given that A links to C and B links to C, that A should also link to B. Or conversely, if A cites a section of B that in turn cites A, that there's a circular dependency between these concepts.
+## Version Control
+`finder window with filenames like "report final FINAL -- version 2"`
+Another common pain point for non-programmers is version control. A lot of the benefits are obvious, particularly relating to collaborative work, but what are some of the less-obvious benefits of a hypermedia system that was specifically version-control aware?
 
-### Transclusion
-An extension of the idea of linking documents is embedding one within another. Ted Nelson, lover of neologisms, calls this "transclusion" -- in the Xanadu model, hypermedia documents can be composed partially or entirely of dynamic transclusions of other documents. This is kind of an abstract concept, so let me give some examples:
+```
+head vs snapshot animation
+    B----------|
+- A1-(A2)-(A3)-o
+  |
+  C  
+A2, A3 appear with new content
+A changes over time
+B transcludes A at head and changes over time
+C transcludes A at snapshot and does not change
+```
+One of the things people wonder about with links and transclusion is if they refer to a document at a particular snapshot in time or whatever the current version is. Well, in a version-control aware system, that can be up to you.We'll explore the implications of this later. 
 
-The platonic ideal is something like a cross between a link and a block quotation: the quote isn't a transcription of its source, it _is_ the source, dynamically inserted. But the basic idea can work at many different sizes, from building layouts to inserting annotations. 
+Version control systems aren't necessarily known for their ease of use. Its important to keep in mind that different users will have different needs and expectations of these systems, and that we don't need everyone to fit a one-size-fits-all solution.
 
-Some of the simplest use cases for this would be essentially page layouts -- for example, a page could be split into frames, with a table of contents on one side with the content on the other. More sophisticated uses of transclusion could allow for separations of content from presentation -- for example, there could be separate layouts for teachers and students, or authors and readers, that share their basic content but feature different annotations and supplementary materials.
+# Widgets
+    + enabled by transclusion
+    + lets author integrate work of programmer without being directly dependent on them
+As I mentioned earlier, hypermedia is an effective, but limited, paradigm for writing software. HyperCard extends the paradigm with the HyperTalk language, a very user-friendly, Smalltalk-influenced environment. But no matter how "user-friendly" a programming language is, its never friendly enough for all people; all code is, at some level, a necessary evil -- a trade-off between clarity and accessibility against programmer time. We should consider Turing completeness our last resort.
 
-Transclusion can also be used as a tool of collaboration -- blockquotes in email and usenet replies are essentially a primitive form of transclusion, and are used to create conversational threads. Future hypermedia tools could use this format as the structure of conversation, but flatten them into somethng that is readable. Likewise, future publishing workflows could be built on alternating rounds of writing and annotation between an author and an editor.
+So we must fight our instinct as programmers to expose a programmatic API and call it a day -- we need to think about extensibility at different levels -- from configuration to plugins to scripting -- and build software with affordances at each tier.
 
-## Extending the model
-So I've talked about some general principles of hypermedia and extensions of the model for authors. But hypermedia is still a fundamentally limited format for writing software -- nothing in the hypermedia model outlined so far enables even simple arithmetic. If we intend to make a general-purpose tool that allows for the expression of ideas we can't even conceive of today, hypermedia can only be the substra it needs to be programmable. 
-
-That said, we should consider Turing completeness our last resort. HyperCard uses a very friendly programming language, HyperTalk, which (like its environment) is heavily influenced by Smalltalk, and features some of the "fix-and-continue" style debugging tools that compiled languages can only dream of. But no matter how "user-friendly" a programming language is, its never friendly enough for all people; all code is, at some level, a necessary evil -- a trade-off between clarity and accessibility against programmer time. So we must fight our instinct as programmers to expose a programmatic API and call it a day -- we need to think about extensibility at different levels -- from configuration to plugins to scripting -- and build software with affordances at each tier.
+One of the ways that this extensibility can be made accessible to hypermedia authors is through widgets. By "widget" I mean a block of interactive content that you can transclude into a document without having to concern yourself with its implementation details. Apple provides quite a few of these with HyperCard -- for example, my slide navigation -- and there's a small community of third-party widget makers as well.
 
 ### Customization
-In _A Pattern Language_, Christopher Alexander frequently discusses the role of customization in architectuure, and he repeatedly argues that the process of customizing and modifying buildings over time, and the irregularity and idiosyncracy that it produces, is what makes buildings and cities useful and beautiful. Buildings that are adaptable encourage a feeling of ownership in a far deeper sense than property laws, and they allow for an evolutionary process to transform them, where fashions come and go but a timeless style emerges.
+    + encourages ownership
+    + customizable widgets increase author empowerment
+    + tools as flexible as the software they create
+    + programmers duty to enable customization
+In _A Pattern Language_, Christopher Alexander frequently discusses the role of customization in architecture, and he repeatedly argues that the process of customizing and modifying buildings over time, and the irregularity and idiosyncracy that it produces, is what makes buildings and cities useful and beautiful. Buildings that are adaptable encourage a feeling of ownership in a far deeper sense than property laws, and they allow for an evolutionary process to transform them, where fashions come and go but a timeless style emerges.
 
-This same ideal can apply to software. Emacs has already been around for fifteen years and could very well be around in a hundred, and for a large part this is because its so focused on customizability -- it _wants_ to be customized. Likewise, HyperCard encourages a similar pattern of ownership: HyperCard is configured through modifications to the Home stack, and they even provide you three blank pages to fill in with links to the stacks you've written or collected.
+This same ideal can apply to software. Emacs has already been around for fifteen years and could very well be around in a hundred, and for a large part this is because its so focused on customizability -- it _wants_ to be customized. Likewise, HyperCard encourages a similar pattern of ownership: HyperCard is configured through modifications to the Home stack, and they even provide you three blank pages to fill in with links to the stacks you've written or collected. 
 
-### Widgets, Plugins & Ecosystem
-One of the ways that this extensibility can be made accessible to hypermedia authors is through widgets. By "widget" I mean a block of interactive content that you can transclude into a document without having to concern yourself with its implementation details. Apple provides quite a few of these with HyperCard -- for example, my slide navigation -- and there's a small community of third-party widget makers as well. 
-
+## Ecosystem
+    + version control enables vendoring without breakage
+    + version control, customization & transclusion enable remixing & bundling, even for non programmers
+    + enables collaboration via sharing
+    + programmer duty to make this easy to use
 As the world becomes more connected, it seems inevitable that this ecosystem is going to eclipse and eventually dwarf the first-party contributions. This becomes its own kind of collaboration, as people who have never met nevertheless become interdependent on eachothers code. First party widgets will be important as reference implementations that de facto standards crystalize around, but its even more important that the creators of the hypermedia systems of tomorrow provide an infrastructure for this ecosystem to bloom -- this means a standard set of tools for people to find and share widgets.
 
 Its important to note that this ecosystem, like all the ideas I'm discussing, will need to work at _both ends_ for people with a wide range of abilities. Authors will be using widgets and programmers will be creating them, but the inverse will be true as well -- programmers will want to use this ecosystem to share code, and authors will share widgets they've modified or composed from smaller pieces. These users will have different needs and workflows but still have the same goals; just as transclusion can provide different views onto the same content, we can provide graphical and code-based views into onto same software.
 
+
 ### Workflows & Frameworks
+    + transclusion enables frameworks of widgets to be packaged together
+    + ecosystem enables framework to develop community
+    + customization & community provides test bed for new ideas
+    + customization provides starting point for authors becoming programmers
+    + enables collaboration via shared workflows
+    + duty of programmers to make frameworks that work across skill levels
+    + "   " provide good examples for beginner programmers
 The unit of abstraction in this ecosystem won't always be widgets; common workflows and widget collections will aggregate into frameworks. Knowledge bases, online magazines and adventure games all work pretty well within the rubric of hypermedia, but each have a specific set of needs; these groups will tend to develop their own standards and ecosystems and social mores within those of hypermedia as a whole.
 
 This raises a lot of programmers' hackles. They see frameworks as a moral hazard: they fragment the ecosystem, they encourage inefficient code, they rot young programmers' brains. This is just another case of programmer chauvinism. 
